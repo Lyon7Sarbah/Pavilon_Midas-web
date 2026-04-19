@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forex Trading Pool — Pavilon Midas Ltd</title>
+  <meta name="description" content="Earn 10-15% monthly returns from our professionally managed Forex Trading Pool. No trading experience required. Start from $100." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+      <div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="services.html" class="active">Services ▾</a>
+        <div class="dropdown-menu">
+          <a href="signals.html"><i class="fas fa-chart-bar"></i> Forex Signals</a>
+          <a href="pool-investment.html"><i class="fas fa-wallet"></i> Forex Trading Pool</a>
+          <a href="referral.html"><i class="fas fa-handshake"></i> Referral Program</a>
+        </div>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="referral.html">Referral</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="signals.html">Forex Signals</a>
+  <a href="pool-investment.html">Forex Trading Pool</a>
+  <a href="referral.html">Referral Program</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html" class="btn btn-outline" style="color:#e87a20;border-color:#e87a20;">Login</a>
+  <a href="register.html" class="btn btn-primary">Get Started</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-label">Forex Trading Pool</div>
+    <h1>Earn from Forex <span class="text-gold">Without Trading</span> Yourself</h1>
+    <p>Combine your capital with other investors in a professionally managed pool and earn 10%–15% monthly returns — no trading skills required.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span class="sep">›</span><a href="services.html">Services</a><span class="sep">›</span><span>Forex Trading Pool</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM/SOLUTION -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="fade-up">
+        <div class="section-label">The Reality</div>
+        <h2>Over <span style="color:var(--danger);">95%</span> of Retail Forex Traders Lose Money</h2>
+        <div class="divider"></div>
+        <p style="color:var(--gray-700);margin-bottom:24px;">Statistics show that the vast majority of retail forex traders lose their money. Here's why:</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+          <div style="display:flex;gap:12px;padding:14px 18px;background:#fff5f5;border-radius:var(--radius);border-left:3px solid var(--danger);">
+            <span><i class="fas fa-arrow-down"></i></span><span style="font-size:0.92rem;color:var(--gray-700);">Small capital cannot withstand normal market fluctuations</span>
+          </div>
+          <div style="display:flex;gap:12px;padding:14px 18px;background:#fff5f5;border-radius:var(--radius);border-left:3px solid var(--danger);">
+            <span><i class="fas fa-frown"></i></span><span style="font-size:0.92rem;color:var(--gray-700);">Emotional decision-making leads to undisciplined trades</span>
+          </div>
+          <div style="display:flex;gap:12px;padding:14px 18px;background:#fff5f5;border-radius:var(--radius);border-left:3px solid var(--danger);">
+            <span><i class="fas fa-ban"></i></span><span style="font-size:0.92rem;color:var(--gray-700);">Lack of proper risk management causes account blow-ups</span>
+          </div>
+        </div>
+        <div style="padding:22px;background:linear-gradient(135deg,rgba(232,122,32,0.08),rgba(232,122,32,0.04));border:1px solid rgba(232,122,32,0.2);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--navy);margin-bottom:8px;">✅ The Smarter Solution</div>
+          <p style="font-size:0.93rem;color:var(--gray-700);margin:0;">Join our Forex Trading Pool and let professionals trade your capital while you earn monthly returns without the stress of trading yourself.</p>
+        </div>
+      </div>
+      <div class="fade-up" data-delay="200">
+        <!-- ROI CALCULATOR PREVIEW -->
+        <div style="background:var(--navy);border-radius:var(--radius-xl);padding:36px;color:var(--white);border:1px solid rgba(232,122,32,0.2);">
+          <h4 style="color:var(--gold);font-family:var(--font-display);margin-bottom:24px;"><i class="fas fa-calculator"></i> Pool Returns Calculator</h4>
+          <div style="margin-bottom:20px;">
+            <label style="font-size:0.82rem;opacity:0.6;display:block;margin-bottom:8px;">Your Investment Amount (USD)</label>
+            <input type="range" id="investSlider" min="100" max="10000" value="1000" step="100" style="width:100%;accent-color:var(--gold);">
+            <div style="text-align:center;font-family:var(--font-display);font-size:2rem;color:var(--gold);margin-top:8px;" id="investDisplay">$1,000</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+            <div style="background:rgba(255,255,255,0.05);border-radius:var(--radius);padding:16px;text-align:center;">
+              <div style="font-size:0.72rem;opacity:0.55;margin-bottom:6px;">Min Monthly Return (10%)</div>
+              <div style="font-family:var(--font-display);font-size:1.6rem;color:var(--gold);" id="minReturn">$100</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:var(--radius);padding:16px;text-align:center;">
+              <div style="font-size:0.72rem;opacity:0.55;margin-bottom:6px;">Max Monthly Return (15%)</div>
+              <div style="font-family:var(--font-display);font-size:1.6rem;color:#2ecc71;" id="maxReturn">$150</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:var(--radius);padding:16px;">
+            <div style="font-size:0.78rem;opacity:0.55;margin-bottom:8px;">Annual Earnings Estimate (compounded at 12%)</div>
+            <div style="font-family:var(--font-display);font-size:1.4rem;color:var(--gold);" id="annualReturn">~$2,760</div>
+          </div>
+          <p style="font-size:0.72rem;opacity:0.45;margin-top:14px;margin-bottom:0;">*For illustration purposes. Past performance does not guarantee future results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW THE POOL WORKS -->
+<section class="section" style="background:var(--off-white);">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label fade-up">How It Works</div>
+      <h2 class="section-title fade-up" data-delay="80">The <span class="text-gold">Forex Trading Pool</span> Explained</h2>
+      <div class="divider centered"></div>
+    </div>
+    <div class="grid-4">
+      <div class="card fade-up" style="text-align:center;">
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-money-bill-wave"></i></div>
+        <h4>You Invest</h4>
+        <p>Fund your account starting from $100. Your capital is registered in the system.</p>
+      </div>
+      <div class="card fade-up" data-delay="100" style="text-align:center;">
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-link"></i></div>
+        <h4>Capital Pooled</h4>
+        <p>Your funds are combined with other investors to create a large, professionally managed trading capital.</p>
+      </div>
+      <div class="card fade-up" data-delay="200" style="text-align:center;">
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-chart-bar"></i></div>
+        <h4>Professionally Traded</h4>
+        <p>Expert traders execute high-probability trades using the pooled capital with proper risk management.</p>
+      </div>
+      <div class="card fade-up" data-delay="300" style="text-align:center;">
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-wallet"></i></div>
+        <h4>You Earn Returns</h4>
+        <p>Monthly returns of 10–15% are credited to your account. Withdraw or reinvest — your choice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT TIERS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label fade-up">Investment Plans</div>
+      <h2 class="section-title fade-up" data-delay="80">Forex Trading <span class="text-gold">Pool Plans</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-desc fade-up" data-delay="160">All plans earn 10–15% monthly ROI. Choose the tier that matches your capital level.</p>
+    </div>
+    <div class="notice fade-up">
+      <span class="notice-icon">ℹ️</span>
+      <span>All Forex Trading Pool plans have a <strong>monthly investment cycle</strong>. You can withdraw your capital and earnings at end of each month, or reinvest to compound your growth.</span>
+    </div>
+    <div class="grid-3 fade-up" data-delay="100">
+      <div class="plan-card">
+        <div class="plan-name">Starter Pool</div>
+        <div class="plan-price"><sup>$</sup>100<span>–$499</span></div>
+        <div class="plan-period">Monthly investment cycle</div>
+        <ul class="plan-features">
+          <li>10%–15% Monthly ROI</li>
+          <li>Monthly capital + returns withdrawal</li>
+          <li>Reinvestment option</li>
+          <li>Pool performance reports</li>
+          <li>Basic investor dashboard</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Start Investing</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Best Value</div>
+        <div class="plan-name">Growth Pool</div>
+        <div class="plan-price"><sup>$</sup>500<span>–$2,999</span></div>
+        <div class="plan-period">Monthly investment cycle</div>
+        <ul class="plan-features">
+          <li>10%–15% Monthly ROI</li>
+          <li>Monthly capital + returns withdrawal</li>
+          <li>Reinvestment option</li>
+          <li>Priority pool allocation</li>
+          <li>Monthly performance reports</li>
+          <li>Investor support access</li>
+        </ul>
+        <a href="register.html" class="btn btn-primary" style="width:100%;justify-content:center;">Join Growth Pool</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Premium Pool</div>
+        <div class="plan-price"><sup>$</sup>3,000<span>+</span></div>
+        <div class="plan-period">Monthly investment cycle</div>
+        <ul class="plan-features">
+          <li>10%–15% Monthly ROI</li>
+          <li>Monthly capital + returns withdrawal</li>
+          <li>Reinvestment option</li>
+          <li>VIP investor status</li>
+          <li>Direct management access</li>
+          <li>Custom reporting & alerts</li>
+          <li>Priority withdrawal processing</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Join Premium Pool</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section" style="background:var(--off-white);">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label fade-up">Key Benefits</div>
+      <h2 class="section-title fade-up" data-delay="80">Why Join the <span class="text-gold">Trading Pool?</span></h2>
+      <div class="divider centered"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card fade-up"><div class="card-icon">📅</div><h3>Monthly Returns</h3><p>Earn consistent 10–15% monthly returns, credited directly to your investor account every cycle.</p></div>
+      <div class="card fade-up" data-delay="100"><div class="card-icon">🧘</div><h3>Passive Income</h3><p>You don't need trading skills or experience. Simply invest and let professionals manage your capital.</p></div>
+      <div class="card fade-up" data-delay="200"><div class="card-icon">🔒</div><h3>Pooled Risk</h3><p>Your capital is spread across multiple trades in the pool, reducing individual exposure and risk.</p></div>
+      <div class="card fade-up" data-delay="100"><div class="card-icon">🔄</div><h3>Flexible Withdrawal</h3><p>Access your full capital and earnings at the end of each monthly cycle, no lock-ins.</p></div>
+      <div class="card fade-up" data-delay="200"><div class="card-icon">📈</div><h3>Compound & Grow</h3><p>Reinvest your returns each month to harness the power of compounding and accelerate your wealth.</p></div>
+      <div class="card fade-up" data-delay="300"><div class="card-icon">💵</div><h3>Low Entry Barrier</h3><p>Start with just $100. Accessible to everyday investors without large capital requirements.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <h2 class="fade-up text-white">Ready to Grow Your <span class="text-gold">Capital Monthly?</span></h2>
+    <p class="fade-up" data-delay="80">Join the Pavilon Midas Forex Trading Pool and start earning consistent monthly returns without ever placing a trade.</p>
+    <div class="cta-buttons fade-up" data-delay="160">
+      <a href="register.html" class="btn btn-primary btn-lg">💰 Start Investing Today</a>
+      <a href="contact.html" class="btn btn-outline btn-lg">💬 Ask Us Anything</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display:'none'">
+        <div class="footer-brand-name">PAVILON MIDAS LTD</div>
+        <p class="footer-tagline">Empowering Everyday Investors in the Global Forex Market.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">📱</a><a href="#" class="social-link">💬</a>
+          <a href="#" class="social-link">📸</a><a href="#" class="social-link">👥</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul>
+        <li><a href="signals.html">Forex Signals</a></li>
+        <li><a href="pool-investment.html">Forex Trading Pool</a></li>
+        <li><a href="referral.html">Referral Program</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="disclaimer.html">Risk Disclaimer</a></li>
+      </ul></div>
+      <div class="footer-col footer-newsletter"><h5>Stay Updated</h5>
+        <p>Get market updates delivered to your inbox.</p>
+        <div class="footer-input-group">
+          <input type="email" placeholder="your@email.com">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Pavilon Midas Ltd. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="js/main.js"></script>
+<script>
+const slider = document.getElementById('investSlider');
+const investDisplay = document.getElementById('investDisplay');
+const minReturn = document.getElementById('minReturn');
+const maxReturn = document.getElementById('maxReturn');
+const annualReturn = document.getElementById('annualReturn');
+if (slider) {
+  slider.addEventListener('input', function() {
+    const v = parseInt(this.value);
+    investDisplay.textContent = '$' + v.toLocaleString();
+    minReturn.textContent = '$' + Math.round(v * 0.10).toLocaleString();
+    maxReturn.textContent = '$' + Math.round(v * 0.15).toLocaleString();
+    // 12 months compounded at 12% avg monthly
+    const annual = v * (Math.pow(1.12, 12) - 1);
+    annualReturn.textContent = '~$' + Math.round(annual).toLocaleString();
+  });
+}
+</script>
+</body>
+</html>

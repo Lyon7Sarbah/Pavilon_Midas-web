@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — Pavilon Midas Ltd</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .strength-bar { height: 5px; border-radius: 3px; background: var(--gray-100); margin-top: 6px; overflow: hidden; }
+    .strength-fill { height: 100%; border-radius: 3px; transition: 0.4s; width: 0%; }
+    .step-indicator { display: flex; gap: 8px; margin-bottom: 32px; }
+    .step-dot { flex: 1; height: 4px; border-radius: 4px; background: var(--gray-100); transition: 0.3s; }
+    .step-dot.active { background: var(--gold); }
+    .step-dot.done { background: var(--success); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+      <div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="signals.html">Signals</a>
+      <a href="pool-investment.html">Trading Pool</a>
+      <a href="referral.html">Referral</a>
+    </div>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm active">Register</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="signals.html">Forex Signals</a>
+  <a href="pool-investment.html">Trading Pool</a>
+  <a href="login.html">Login</a>
+</div>
+
+<div class="auth-page" style="padding:100px 24px 60px;">
+  <div class="auth-card fade-in visible" style="max-width:560px;">
+    <div class="auth-logo">
+      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+    </div>
+    <h2 class="auth-title">Create Your Account</h2>
+    <p class="auth-subtitle">Join thousands of investors across Ghana and Nigeria. It's free to register.</p>
+
+    <!-- PERKS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:28px;">
+      <div style="text-align:center;padding:12px 8px;background:var(--off-white);border-radius:var(--radius);font-size:0.78rem;color:var(--navy);">
+        <div style="font-size:1.2rem;margin-bottom:4px;">📊</div>Free Signals Trial
+      </div>
+      <div style="text-align:center;padding:12px 8px;background:var(--off-white);border-radius:var(--radius);font-size:0.78rem;color:var(--navy);">
+        <div style="font-size:1.2rem;margin-bottom:4px;">💰</div>Pool Access
+      </div>
+      <div style="text-align:center;padding:12px 8px;background:var(--off-white);border-radius:var(--radius);font-size:0.78rem;color:var(--navy);">
+        <div style="font-size:1.2rem;margin-bottom:4px;">🤝</div>Referral Link
+      </div>
+    </div>
+
+    <form action="#" method="post">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" placeholder="Kwame" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" placeholder="Mensah" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" placeholder="kwamemensah" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone / WhatsApp</label>
+        <input type="tel" class="form-control" placeholder="+233 XX XXX XXXX" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Country</label>
+        <select class="form-control form-select" required>
+          <option value="">Select your country...</option>
+          <option value="GH">🇬🇭 Ghana</option>
+          <option value="NG">🇳🇬 Nigeria</option>
+          <option value="SN">🇸🇳 Senegal</option>
+          <option value="CI">🇨🇮 Côte d'Ivoire</option>
+          <option value="Other">🌍 Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" style="display:flex;align-items:center;justify-content:space-between;">
+          Password
+          <span id="strengthLabel" style="font-size:0.75rem;color:var(--gray-500);font-weight:400;"></span>
+        </label>
+        <div style="position:relative;">
+          <input type="password" class="form-control" id="regPassword" placeholder="Min. 8 characters" required oninput="checkStrength(this.value)">
+          <button type="button" onclick="togglePassword('regPassword', this)" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1rem;color:var(--gray-500);">👁</button>
+        </div>
+        <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" placeholder="Re-enter password" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Referral Code <span style="font-weight:400;color:var(--gray-500);">(Optional)</span></label>
+        <input type="text" class="form-control" placeholder="Enter referral code if you have one">
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
+        <input type="checkbox" id="agreeTerms" style="accent-color:var(--gold);width:16px;height:16px;margin-top:2px;flex-shrink:0;" required>
+        <label for="agreeTerms" style="font-size:0.88rem;color:var(--gray-700);cursor:pointer;line-height:1.5;">
+          I agree to the <a href="terms.html" style="color:var(--gold);" target="_blank">Terms & Conditions</a>, <a href="privacy.html" style="color:var(--gold);" target="_blank">Privacy Policy</a>, and <a href="disclaimer.html" style="color:var(--gold);" target="_blank">Risk Disclaimer</a>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">Create My Account 🚀</button>
+    </form>
+
+    <div class="auth-footer">
+      Already have an account? <a href="login.html">Sign in →</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+function togglePassword(id, btn) {
+  const input = document.getElementById(id);
+  if (input.type === 'password') { input.type = 'text'; btn.textContent = '🔒'; }
+  else { input.type = 'password'; btn.textContent = '👁'; }
+}
+function checkStrength(val) {
+  const fill = document.getElementById('strengthFill');
+  const label = document.getElementById('strengthLabel');
+  let score = 0;
+  if (val.length >= 8) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const colors = ['#e74c3c','#e87a20','#f5a623','#2ecc71'];
+  const labels = ['Weak','Fair','Good','Strong'];
+  const widths = ['25%','50%','75%','100%'];
+  if (val.length === 0) { fill.style.width = '0'; label.textContent = ''; return; }
+  fill.style.background = colors[score-1] || colors[0];
+  fill.style.width = widths[score-1] || widths[0];
+  label.textContent = labels[score-1] || labels[0];
+  label.style.color = colors[score-1] || colors[0];
+}
+</script>
+</body>
+</html>

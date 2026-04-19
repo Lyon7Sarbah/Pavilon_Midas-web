@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — Pavilon Midas Ltd</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Background image overlay styles */
+    .auth-page {
+      position: relative;
+      background-image: url('assets/login-bg.jpg'); /* Add your image URL here */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .auth-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(8, 15, 34, 0.85) 0%, rgba(13, 27, 62, 0.75) 100%);
+      z-index: 0;
+    }
+    
+    .auth-page .auth-card {
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+    
+    /* Password strength meter */
+    .strength-bar { 
+      height: 5px; 
+      border-radius: 3px; 
+      background: var(--gray-100); 
+      margin-top: 6px; 
+      overflow: hidden; 
+    }
+    
+    .strength-fill { 
+      height: 100%; 
+      border-radius: 3px; 
+      transition: 0.4s; 
+      width: 0%; 
+    }
+    
+    /* Password toggle button */
+    .password-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--gray-500);
+      padding: 4px;
+      transition: var(--transition);
+    }
+    
+    .password-toggle:hover {
+      color: var(--gold);
+    }
+    
+    /* Perk cards hover effect */
+    .perk-card {
+      text-align: center;
+      padding: 12px 8px;
+      background: var(--off-white);
+      border-radius: var(--radius);
+      font-size: 0.78rem;
+      color: var(--navy);
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+    
+    .perk-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Country select styling */
+    .form-select option i {
+      margin-right: 8px;
+    }
+    
+    /* Animation for form elements */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .auth-card {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+      <div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="services.html">Services <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i></a>
+        <div class="dropdown-menu">
+          <a href="signals.html"><i class="fas fa-chart-bar"></i> Forex Signals</a>
+          <a href="pool-investment.html"><i class="fas fa-wallet"></i> Forex Trading Pool</a>
+          <a href="referral.html"><i class="fas fa-handshake"></i> Referral Program</a>
+        </div>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="referral.html">Referral</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm active">Get Started</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="signals.html">Forex Signals</a>
+  <a href="pool-investment.html">Trading Pool</a>
+  <a href="referral.html">Referral Program</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html" class="btn btn-outline" style="color:#e87a20;border-color:#e87a20;">Login</a>
+  <a href="register.html" class="btn btn-primary">Create Account</a>
+</div>
+
+<div class="auth-page" style="padding:100px 24px 60px;">
+  <div class="auth-card fade-in visible" style="max-width:560px;">
+    <div class="auth-logo">
+      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+      <div style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:6px;">Asset Management Ltd</div>
+    </div>
+    
+    <h2 class="auth-title">Create Your Account</h2>
+    <p class="auth-subtitle">Join thousands of investors across Ghana and Nigeria. It's free to register.</p>
+
+    <!-- PERKS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:28px;">
+      <div class="perk-card">
+        <div style="font-size:1.4rem;margin-bottom:4px;color:var(--gold);"><i class="fas fa-chart-line"></i></div>
+        <strong>Free Signals</strong><br>
+        <span style="font-size:0.7rem;opacity:0.7;">7-day trial</span>
+      </div>
+      <div class="perk-card">
+        <div style="font-size:1.4rem;margin-bottom:4px;color:var(--gold);"><i class="fas fa-wallet"></i></div>
+        <strong>Pool Access</strong><br>
+        <span style="font-size:0.7rem;opacity:0.7;">Start from $100</span>
+      </div>
+      <div class="perk-card">
+        <div style="font-size:1.4rem;margin-bottom:4px;color:var(--gold);"><i class="fas fa-users"></i></div>
+        <strong>Referral Bonus</strong><br>
+        <span style="font-size:0.7rem;opacity:0.7;">Earn 5-10%</span>
+      </div>
+    </div>
+
+    <form action="auth/register.php" method="post" id="registerForm">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-group">
+          <label class="form-label" for="firstName">
+            <i class="fas fa-user" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+            First Name
+          </label>
+          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Kwame" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="lastName">
+            <i class="fas fa-user" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+            Last Name
+          </label>
+          <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Mensah" required>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="username">
+          <i class="fas fa-at" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+          Username
+        </label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="kwamemensah" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="email">
+          <i class="fas fa-envelope" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+          Email Address
+        </label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="phone">
+          <i class="fab fa-whatsapp" style="margin-right: 6px; color: #25D366; font-size: 0.9rem;"></i>
+          Phone / WhatsApp
+        </label>
+        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+233 XX XXX XXXX" required>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="country">
+          <i class="fas fa-globe-africa" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+          Country
+        </label>
+        <select id="country" name="country" class="form-control form-select" required>
+          <option value="">Select your country...</option>
+          <option value="GH">🇬🇭 Ghana</option>
+          <option value="NG">🇳🇬 Nigeria</option>
+          <option value="SN">🇸🇳 Senegal</option>
+          <option value="CI">🇨🇮 Côte d'Ivoire</option>
+          <option value="KE">🇰🇪 Kenya</option>
+          <option value="ZA">🇿🇦 South Africa</option>
+          <option value="Other">🌍 Other African Country</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="regPassword" style="display:flex;align-items:center;justify-content:space-between;">
+          <span>
+            <i class="fas fa-lock" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+            Password
+          </span>
+          <span id="strengthLabel" style="font-size:0.75rem;color:var(--gray-500);font-weight:400;"></span>
+        </label>
+        <div style="position:relative;">
+          <input type="password" class="form-control" id="regPassword" name="password" placeholder="Min. 8 characters" required oninput="checkStrength(this.value)">
+          <button type="button" onclick="togglePassword('regPassword', this)" class="password-toggle">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+        <small style="color: var(--gray-500); font-size: 0.7rem; display: block; margin-top: 4px;">
+          <i class="fas fa-info-circle"></i> Use 8+ characters with uppercase, number & symbol
+        </small>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="confirmPassword">
+          <i class="fas fa-check-circle" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+          Confirm Password
+        </label>
+        <div style="position:relative;">
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" required>
+          <button type="button" onclick="togglePassword('confirmPassword', this)" class="password-toggle">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="referralCode">
+          <i class="fas fa-ticket-alt" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
+          Referral Code <span style="font-weight:400;color:var(--gray-500);">(Optional)</span>
+        </label>
+        <input type="text" id="referralCode" name="referralCode" class="form-control" placeholder="Enter referral code if you have one">
+      </div>
+      
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
+        <input type="checkbox" id="agreeTerms" name="agreeTerms" style="accent-color:var(--gold);width:16px;height:16px;margin-top:2px;flex-shrink:0;" required>
+        <label for="agreeTerms" style="font-size:0.88rem;color:var(--gray-700);cursor:pointer;line-height:1.5;">
+          I agree to the <a href="terms.html" style="color:var(--gold);" target="_blank">Terms & Conditions</a>, 
+          <a href="privacy.html" style="color:var(--gold);" target="_blank">Privacy Policy</a>, and 
+          <a href="disclaimer.html" style="color:var(--gold);" target="_blank">Risk Disclaimer</a>
+        </label>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">
+        <i class="fas fa-user-plus" style="margin-right: 8px;"></i>Create My Account
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      Already have an account? <a href="login.html">Sign in <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 4px;"></i></a>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="js/main.js"></script>
+<script>
+function togglePassword(id, btn) {
+  const input = document.getElementById(id);
+  const icon = btn.querySelector('i');
+  
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  } else {
+    input.type = 'password';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  }
+}
+
+function checkStrength(val) {
+  const fill = document.getElementById('strengthFill');
+  const label = document.getElementById('strengthLabel');
+  let score = 0;
+  
+  if (val.length >= 8) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  
+  const colors = ['#e74c3c', '#e87a20', '#f5a623', '#2ecc71'];
+  const labels = ['Weak', 'Fair', 'Good', 'Strong'];
+  const widths = ['25%', '50%', '75%', '100%'];
+  
+  if (val.length === 0) { 
+    fill.style.width = '0'; 
+    label.textContent = ''; 
+    return; 
+  }
+  
+  const idx = Math.min(score - 1, 3);
+  fill.style.background = colors[idx] || colors[0];
+  fill.style.width = widths[idx] || widths[0];
+  label.textContent = labels[idx] || labels[0];
+  label.style.color = colors[idx] || colors[0];
+}
+
+// Password confirmation validation
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+  const password = document.getElementById('regPassword').value;
+  const confirm = document.getElementById('confirmPassword').value;
+  
+  if (password !== confirm) {
+    e.preventDefault();
+    alert('Passwords do not match!');
+  }
+  
+  if (password.length < 8) {
+    e.preventDefault();
+    alert('Password must be at least 8 characters long!');
+  }
+});
+
+// Add animation on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const authCard = document.querySelector('.auth-card');
+  if (authCard) {
+    authCard.style.opacity = '0';
+    authCard.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+      authCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      authCard.style.opacity = '1';
+      authCard.style.transform = 'translateY(0)';
+    }, 100);
+  }
+});
+</script>
+
+</body>
+</html>
