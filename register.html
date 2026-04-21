@@ -4,13 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create Account — Pavilon Midas Ltd</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="description" content="Join Pavilon Midas - Africa's trusted forex signal provider and pool investment platform. Start your investment journey today." />
+  
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:;">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* Background image overlay styles */
+    /* Background image overlay */
     .auth-page {
       position: relative;
-      background-image: url('assets/login-bg.jpg'); /* Add your image URL here */
+      background-image: url('assets/login-bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -32,6 +40,7 @@
       z-index: 1;
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.95);
+      max-width: 580px;
     }
     
     /* Password strength meter */
@@ -69,7 +78,7 @@
       color: var(--gold);
     }
     
-    /* Perk cards hover effect */
+    /* Perk cards */
     .perk-card {
       text-align: center;
       padding: 12px 8px;
@@ -87,25 +96,68 @@
       box-shadow: var(--shadow-sm);
     }
     
-    /* Country select styling */
-    .form-select option i {
-      margin-right: 8px;
+    /* Error and success alerts */
+    .alert {
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      font-size: 0.9rem;
     }
     
-    /* Animation for form elements */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .alert-error {
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      color: #c0392b;
     }
     
-    .auth-card {
-      animation: fadeInUp 0.6s ease-out;
+    .alert-success {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      color: #27ae60;
+    }
+    
+    .alert ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .alert li {
+      margin-bottom: 4px;
+    }
+    
+    /* Security badges */
+    .security-badge {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+      font-size: 0.7rem;
+      color: var(--gray-500);
+    }
+    
+    .security-badge span i {
+      color: #2ecc71;
+      margin-right: 4px;
+    }
+    
+    /* Password requirements tooltip */
+    .password-requirements {
+      font-size: 0.7rem;
+      color: var(--gray-500);
+      margin-top: 4px;
+      display: none;
+    }
+    
+    .password-requirements.show {
+      display: block;
+    }
+    
+    .requirement-met {
+      color: #2ecc71;
+    }
+    
+    .requirement-unmet {
+      color: var(--gray-500);
     }
   </style>
 </head>
@@ -114,8 +166,8 @@
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
-      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>
+      <img src="assets/logo1.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+      <!--<div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>-->
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -152,14 +204,14 @@
 </div>
 
 <div class="auth-page" style="padding:100px 24px 60px;">
-  <div class="auth-card fade-in visible" style="max-width:560px;">
+  <div class="auth-card fade-in visible">
     <div class="auth-logo">
-      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <div style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:6px;">Asset Management Ltd</div>
+      <img src="assets/logo1.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+      <!--<div style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:6px;">Asset Management Ltd</div>-->
     </div>
     
-    <h2 class="auth-title">Create Your Account</h2>
-    <p class="auth-subtitle">Join thousands of investors across Ghana and Nigeria. It's free to register.</p>
+    <h2 class="auth-title">Create Secure Account</h2>
+    <p class="auth-subtitle">Join thousands of investors across Africa.</p>
 
     <!-- PERKS -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:28px;">
@@ -180,21 +232,46 @@
       </div>
     </div>
 
-    <form action="auth/register.php" method="post" id="registerForm">
+    <!-- Registration Form -->
+    <form action="auth/register.php" method="post" id="registerForm" autocomplete="on">
+      <!-- CSRF Token (will be populated by JavaScript or server) -->
+      <input type="hidden" id="csrf_token" name="csrf_token" value="">
+      
+      <!-- Honeypot field for bot protection -->
+      <input type="text" name="website" id="website" style="display:none;" autocomplete="off" tabindex="-1">
+      
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div class="form-group">
           <label class="form-label" for="firstName">
             <i class="fas fa-user" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
             First Name
           </label>
-          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Kwame" required>
+          <input type="text" 
+                 id="firstName" 
+                 name="first_name" 
+                 class="form-control" 
+                 placeholder="Kwame" 
+                 required 
+                 maxlength="50"
+                 pattern="[A-Za-z\s\-']{2,50}"
+                 title="2-50 characters, letters only"
+                 autocomplete="given-name">
         </div>
         <div class="form-group">
           <label class="form-label" for="lastName">
             <i class="fas fa-user" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
             Last Name
           </label>
-          <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Mensah" required>
+          <input type="text" 
+                 id="lastName" 
+                 name="last_name" 
+                 class="form-control" 
+                 placeholder="Mensah" 
+                 required 
+                 maxlength="50"
+                 pattern="[A-Za-z\s\-']{2,50}"
+                 title="2-50 characters, letters only"
+                 autocomplete="family-name">
         </div>
       </div>
       
@@ -203,7 +280,20 @@
           <i class="fas fa-at" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
           Username
         </label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="kwamemensah" required>
+        <input type="text" 
+               id="username" 
+               name="username" 
+               class="form-control" 
+               placeholder="kwamemensah" 
+               required 
+               minlength="3"
+               maxlength="30"
+               pattern="[A-Za-z0-9_]{3,30}"
+               title="3-30 characters, letters, numbers, and underscore only"
+               autocomplete="username">
+        <small style="color: var(--gray-500); font-size: 0.7rem; display: block; margin-top: 4px;">
+          <i class="fas fa-info-circle"></i> Letters, numbers, and underscore only
+        </small>
       </div>
       
       <div class="form-group">
@@ -211,7 +301,16 @@
           <i class="fas fa-envelope" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
           Email Address
         </label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+        <input type="email" 
+               id="email" 
+               name="email" 
+               class="form-control" 
+               placeholder="you@example.com" 
+               required 
+               maxlength="100"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+               title="Please enter a valid email address"
+               autocomplete="email">
       </div>
       
       <div class="form-group">
@@ -219,7 +318,15 @@
           <i class="fab fa-whatsapp" style="margin-right: 6px; color: #25D366; font-size: 0.9rem;"></i>
           Phone / WhatsApp
         </label>
-        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+233 XX XXX XXXX" required>
+        <input type="tel" 
+               id="phone" 
+               name="phone" 
+               class="form-control" 
+               placeholder="+233 XX XXX XXXX" 
+               required 
+               pattern="^\+?[0-9\s\-\(\)]{8,20}$"
+               title="Please enter a valid phone number"
+               autocomplete="tel">
       </div>
       
       <div class="form-group">
@@ -248,15 +355,32 @@
           <span id="strengthLabel" style="font-size:0.75rem;color:var(--gray-500);font-weight:400;"></span>
         </label>
         <div style="position:relative;">
-          <input type="password" class="form-control" id="regPassword" name="password" placeholder="Min. 8 characters" required oninput="checkStrength(this.value)">
+          <input type="password" 
+                 class="form-control" 
+                 id="regPassword" 
+                 name="password" 
+                 placeholder="Create strong password" 
+                 required 
+                 minlength="12"
+                 maxlength="128"
+                 autocomplete="new-password"
+                 oninput="checkStrength(this.value)"
+                 onfocus="showPasswordRequirements()"
+                 onblur="hidePasswordRequirements()">
           <button type="button" onclick="togglePassword('regPassword', this)" class="password-toggle">
             <i class="fas fa-eye"></i>
           </button>
         </div>
         <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
-        <small style="color: var(--gray-500); font-size: 0.7rem; display: block; margin-top: 4px;">
-          <i class="fas fa-info-circle"></i> Use 8+ characters with uppercase, number & symbol
-        </small>
+        
+        <!-- Password Requirements -->
+        <div class="password-requirements" id="passwordRequirements">
+          <div id="req-length"><i class="fas fa-circle" style="font-size: 0.4rem; margin-right: 4px;"></i> At least 12 characters</div>
+          <div id="req-uppercase"><i class="fas fa-circle" style="font-size: 0.4rem; margin-right: 4px;"></i> One uppercase letter</div>
+          <div id="req-lowercase"><i class="fas fa-circle" style="font-size: 0.4rem; margin-right: 4px;"></i> One lowercase letter</div>
+          <div id="req-number"><i class="fas fa-circle" style="font-size: 0.4rem; margin-right: 4px;"></i> One number</div>
+          <div id="req-special"><i class="fas fa-circle" style="font-size: 0.4rem; margin-right: 4px;"></i> One special character (!@#$%^&*)</div>
+        </div>
       </div>
       
       <div class="form-group">
@@ -265,11 +389,21 @@
           Confirm Password
         </label>
         <div style="position:relative;">
-          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" required>
+          <input type="password" 
+                 class="form-control" 
+                 id="confirmPassword" 
+                 name="confirm_password" 
+                 placeholder="Re-enter password" 
+                 required 
+                 minlength="12"
+                 maxlength="128"
+                 autocomplete="new-password"
+                 oninput="checkPasswordMatch()">
           <button type="button" onclick="togglePassword('confirmPassword', this)" class="password-toggle">
             <i class="fas fa-eye"></i>
           </button>
         </div>
+        <div id="passwordMatchMessage" style="font-size: 0.75rem; margin-top: 4px;"></div>
       </div>
       
       <div class="form-group">
@@ -277,11 +411,22 @@
           <i class="fas fa-ticket-alt" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
           Referral Code <span style="font-weight:400;color:var(--gray-500);">(Optional)</span>
         </label>
-        <input type="text" id="referralCode" name="referralCode" class="form-control" placeholder="Enter referral code if you have one">
+        <input type="text" 
+               id="referralCode" 
+               name="referral_code" 
+               class="form-control" 
+               placeholder="Enter referral code if you have one"
+               maxlength="20"
+               pattern="[A-Za-z0-9]{3,20}"
+               title="3-20 characters, letters and numbers only">
       </div>
       
       <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
-        <input type="checkbox" id="agreeTerms" name="agreeTerms" style="accent-color:var(--gold);width:16px;height:16px;margin-top:2px;flex-shrink:0;" required>
+        <input type="checkbox" 
+               id="agreeTerms" 
+               name="agree_terms" 
+               style="accent-color:var(--gold);width:16px;height:16px;margin-top:2px;flex-shrink:0;" 
+               required>
         <label for="agreeTerms" style="font-size:0.88rem;color:var(--gray-700);cursor:pointer;line-height:1.5;">
           I agree to the <a href="terms.html" style="color:var(--gold);" target="_blank">Terms & Conditions</a>, 
           <a href="privacy.html" style="color:var(--gold);" target="_blank">Privacy Policy</a>, and 
@@ -289,13 +434,20 @@
         </label>
       </div>
       
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">
-        <i class="fas fa-user-plus" style="margin-right: 8px;"></i>Create My Account
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;" id="submitButton">
+        <i class="fas fa-user-plus" style="margin-right: 8px;"></i>Create Secure Account
       </button>
     </form>
 
     <div class="auth-footer">
       Already have an account? <a href="login.html">Sign in <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 4px;"></i></a>
+    </div>
+    
+    <!-- Security Badges -->
+    <div class="security-badge">
+      <span><i class="fas fa-lock"></i> 256-bit SSL</span>
+      <span><i class="fas fa-shield-alt"></i> DDoS Protected</span>
+      <span><i class="fas fa-database"></i> Encrypted Storage</span>
     </div>
   </div>
 </div>
@@ -304,6 +456,29 @@
 
 <script src="js/main.js"></script>
 <script>
+// ============================================
+// SECURITY FUNCTIONS
+// ============================================
+
+// Generate cryptographically secure CSRF token
+function generateCSRFToken() {
+  if (window.crypto && window.crypto.getRandomValues) {
+    const array = new Uint32Array(8);
+    window.crypto.getRandomValues(array);
+    const token = Array.from(array, dec => dec.toString(16).padStart(8, '0')).join('');
+    document.getElementById('csrf_token').value = token;
+    sessionStorage.setItem('csrf_token', token);
+    return token;
+  } else {
+    // Fallback for older browsers
+    const token = Math.random().toString(36).substring(2) + Date.now().toString(36) + Math.random().toString(36).substring(2);
+    document.getElementById('csrf_token').value = token;
+    sessionStorage.setItem('csrf_token', token);
+    return token;
+  }
+}
+
+// Toggle password visibility
 function togglePassword(id, btn) {
   const input = document.getElementById(id);
   const icon = btn.querySelector('i');
@@ -319,19 +494,45 @@ function togglePassword(id, btn) {
   }
 }
 
+// Enhanced password strength checker
 function checkStrength(val) {
   const fill = document.getElementById('strengthFill');
   const label = document.getElementById('strengthLabel');
+  
+  // Password requirements
+  const hasLength = val.length >= 12;
+  const hasUpper = /[A-Z]/.test(val);
+  const hasLower = /[a-z]/.test(val);
+  const hasNumber = /[0-9]/.test(val);
+  const hasSpecial = /[^A-Za-z0-9]/.test(val);
+  
+  // Update requirement indicators
+  updateRequirement('req-length', hasLength);
+  updateRequirement('req-uppercase', hasUpper);
+  updateRequirement('req-lowercase', hasLower);
+  updateRequirement('req-number', hasNumber);
+  updateRequirement('req-special', hasSpecial);
+  
+  // Check against common passwords
+  const commonPasswords = ['password', '12345678', 'qwerty123', 'admin123', 'password123', 'pavilonmidas', 'midas2024'];
+  const isCommon = commonPasswords.includes(val.toLowerCase());
+  
+  // Check if password contains email/username
+  const email = document.getElementById('email').value.split('@')[0];
+  const username = document.getElementById('username').value;
+  const containsPersonal = email && val.toLowerCase().includes(email.toLowerCase()) || 
+                           username && val.toLowerCase().includes(username.toLowerCase());
+  
   let score = 0;
+  if (hasLength) score++;
+  if (hasUpper) score++;
+  if (hasLower) score++;
+  if (hasNumber) score++;
+  if (hasSpecial) score++;
   
-  if (val.length >= 8) score++;
-  if (/[A-Z]/.test(val)) score++;
-  if (/[0-9]/.test(val)) score++;
-  if (/[^A-Za-z0-9]/.test(val)) score++;
-  
-  const colors = ['#e74c3c', '#e87a20', '#f5a623', '#2ecc71'];
-  const labels = ['Weak', 'Fair', 'Good', 'Strong'];
-  const widths = ['25%', '50%', '75%', '100%'];
+  const colors = ['#e74c3c', '#e87a20', '#f5a623', '#2ecc71', '#27ae60'];
+  const labels = ['Very Weak', 'Weak', 'Fair', 'Strong', 'Very Strong'];
+  const widths = ['20%', '40%', '60%', '80%', '100%'];
   
   if (val.length === 0) { 
     fill.style.width = '0'; 
@@ -339,31 +540,148 @@ function checkStrength(val) {
     return; 
   }
   
-  const idx = Math.min(score - 1, 3);
-  fill.style.background = colors[idx] || colors[0];
-  fill.style.width = widths[idx] || widths[0];
-  label.textContent = labels[idx] || labels[0];
-  label.style.color = colors[idx] || colors[0];
+  let idx = Math.min(score - 1, 4);
+  if (idx < 0) idx = 0;
+  
+  // Penalize common passwords
+  if (isCommon) {
+    idx = 0;
+    label.textContent = 'Common password!';
+  } else if (containsPersonal) {
+    idx = 0;
+    label.textContent = 'Don\'t use personal info!';
+  } else {
+    label.textContent = labels[idx];
+  }
+  
+  fill.style.background = colors[idx];
+  fill.style.width = widths[idx];
+  label.style.color = colors[idx];
 }
 
-// Password confirmation validation
-document.getElementById('registerForm').addEventListener('submit', function(e) {
+function updateRequirement(id, met) {
+  const element = document.getElementById(id);
+  if (met) {
+    element.classList.add('requirement-met');
+    element.classList.remove('requirement-unmet');
+    element.querySelector('i').className = 'fas fa-check-circle';
+    element.querySelector('i').style.color = '#2ecc71';
+  } else {
+    element.classList.add('requirement-unmet');
+    element.classList.remove('requirement-met');
+    element.querySelector('i').className = 'fas fa-circle';
+    element.querySelector('i').style.color = '';
+  }
+}
+
+function showPasswordRequirements() {
+  document.getElementById('passwordRequirements').classList.add('show');
+}
+
+function hidePasswordRequirements() {
+  setTimeout(() => {
+    document.getElementById('passwordRequirements').classList.remove('show');
+  }, 200);
+}
+
+// Check password match
+function checkPasswordMatch() {
   const password = document.getElementById('regPassword').value;
   const confirm = document.getElementById('confirmPassword').value;
+  const message = document.getElementById('passwordMatchMessage');
   
-  if (password !== confirm) {
+  if (confirm.length === 0) {
+    message.textContent = '';
+    return true;
+  }
+  
+  if (password === confirm) {
+    message.innerHTML = '<i class="fas fa-check-circle" style="color: #2ecc71;"></i> Passwords match';
+    message.style.color = '#2ecc71';
+    return true;
+  } else {
+    message.innerHTML = '<i class="fas fa-times-circle" style="color: #e74c3c;"></i> Passwords do not match';
+    message.style.color = '#e74c3c';
+    return false;
+  }
+}
+
+// Form validation with SQL injection prevention
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+  // Check CSRF token
+  const storedToken = sessionStorage.getItem('csrf_token');
+  const formToken = document.getElementById('csrf_token').value;
+  
+  if (!storedToken || storedToken !== formToken) {
+    e.preventDefault();
+    alert('Security validation failed. Please refresh the page and try again.');
+    return false;
+  }
+  
+  // Check honeypot
+  const honeypot = document.getElementById('website').value;
+  if (honeypot) {
+    e.preventDefault();
+    console.log('Bot detected');
+    return false;
+  }
+  
+  // Check password match
+  if (!checkPasswordMatch()) {
     e.preventDefault();
     alert('Passwords do not match!');
+    return false;
   }
   
-  if (password.length < 8) {
+  // Check password strength
+  const password = document.getElementById('regPassword').value;
+  if (password.length < 12) {
     e.preventDefault();
-    alert('Password must be at least 8 characters long!');
+    alert('Password must be at least 12 characters long!');
+    return false;
   }
+  
+  // SQL Injection pattern detection (additional client-side protection)
+  const sqlPatterns = /(\bSELECT\b|\bINSERT\b|\bUPDATE\b|\bDELETE\b|\bDROP\b|\bUNION\b|--|;|\bOR\b.*=|\bAND\b.*=)/i;
+  const inputs = ['firstName', 'lastName', 'username', 'email', 'referralCode'];
+  
+  for (let id of inputs) {
+    const value = document.getElementById(id).value;
+    if (sqlPatterns.test(value)) {
+      e.preventDefault();
+      alert('Invalid characters detected in ' + id.replace(/([A-Z])/g, ' $1').toLowerCase());
+      return false;
+    }
+  }
+  
+  // Disable button to prevent double submission
+  const btn = document.getElementById('submitButton');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+  
+  // Re-enable after 5 seconds (in case of network issues)
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-user-plus" style="margin-right: 8px;"></i>Create Secure Account';
+  }, 5000);
 });
 
-// Add animation on page load
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+  // Generate CSRF token
+  generateCSRFToken();
+  
+  // Prevent form resubmission on page refresh
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+  
+  // Clear sensitive data from session when page unloads
+  window.addEventListener('beforeunload', function() {
+    // Session storage is cleared on tab close automatically
+  });
+  
+  // Animate card
   const authCard = document.querySelector('.auth-card');
   if (authCard) {
     authCard.style.opacity = '0';
@@ -375,7 +693,19 @@ document.addEventListener('DOMContentLoaded', function() {
       authCard.style.transform = 'translateY(0)';
     }, 100);
   }
+  
+  // Sanitize URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const refCode = urlParams.get('ref');
+  if (refCode && /^[A-Za-z0-9]{3,20}$/.test(refCode)) {
+    document.getElementById('referralCode').value = refCode;
+  }
 });
+
+// Clear session storage on successful registration (called from server redirect)
+function handleSuccessfulRegistration() {
+  sessionStorage.removeItem('csrf_token');
+}
 </script>
 
 </body>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forex Trading Pool — Pavilon Midas Ltd</title>
   <meta name="description" content="Earn 10-15% monthly returns from our professionally managed Forex Trading Pool. No trading experience required. Start from $100." />
+  <!-- Font Awesome 6.4.0 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -14,7 +15,7 @@
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>
+      <!--<div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>-->
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -72,13 +73,16 @@
         <p style="color:var(--gray-700);margin-bottom:24px;">Statistics show that the vast majority of retail forex traders lose their money. Here's why:</p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
           <div style="display:flex;gap:12px;padding:14px 18px;background:#fff5f5;border-radius:var(--radius);border-left:3px solid var(--danger);">
-            <span><i class="fas fa-chart-line" style="transform:scaleY(-1);"></i></span><span style="font-size:0.92rem;color:var(--gray-700);">Small capital cannot withstand normal market fluctuations</span>
+            <span><i class="fas fa-chart-line" style="transform: rotate(180deg); color: var(--danger);"></i></span>
+            <span style="font-size:0.92rem;color:var(--gray-700);">Small capital cannot withstand normal market fluctuations</span>
           </div>
           <div style="display:flex;gap:12px;padding:14px 18px;background:#fff5f5;border-radius:var(--radius);border-left:3px solid var(--danger);">
-            <span><i class="fas fa-face-worried"></i></span><span style="font-size:0.92rem;color:var(--gray-700);">Emotional decision-making leads to undisciplined trades</span>
+            <span><i class="fas fa-face-frown" style="color: var(--danger);"></i></span>
+            <span style="font-size:0.92rem;color:var(--gray-700);">Emotional decision-making leads to undisciplined trades</span>
           </div>
           <div style="display:flex;gap:12px;padding:14px 18px;background:#fff5f5;border-radius:var(--radius);border-left:3px solid var(--danger);">
-            <span><i class="fas fa-ban"></i></span><span style="font-size:0.92rem;color:var(--gray-700);">Lack of proper risk management causes account blow-ups</span>
+            <span><i class="fas fa-ban" style="color: var(--danger);"></i></span>
+            <span style="font-size:0.92rem;color:var(--gray-700);">Lack of proper risk management causes account blow-ups</span>
           </div>
         </div>
         <div style="padding:22px;background:linear-gradient(135deg,rgba(232,122,32,0.08),rgba(232,122,32,0.04));border:1px solid rgba(232,122,32,0.2);border-radius:var(--radius-lg);">
@@ -89,7 +93,7 @@
       <div class="fade-up" data-delay="200">
         <!-- ROI CALCULATOR PREVIEW -->
         <div style="background:var(--navy);border-radius:var(--radius-xl);padding:36px;color:var(--white);border:1px solid rgba(232,122,32,0.2);">
-          <h4 style="color:var(--gold);font-family:var(--font-display);margin-bottom:24px;"><i class="fas fa-wallet"></i> Pool Returns Calculator</h4>
+          <h4 style="color:var(--gold);font-family:var(--font-display);margin-bottom:24px;"><i class="fas fa-calculator"></i> Pool Returns Calculator</h4>
           <div style="margin-bottom:20px;">
             <label style="font-size:0.82rem;opacity:0.6;display:block;margin-bottom:8px;">Your Investment Amount (USD)</label>
             <input type="range" id="investSlider" min="100" max="10000" value="1000" step="100" style="width:100%;accent-color:var(--gold);">
@@ -126,7 +130,7 @@
     </div>
     <div class="grid-4">
       <div class="card fade-up" style="text-align:center;">
-        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-money-bill" style="color:var(--gold);"></i></div>
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-money-bill-wave"></i></div>
         <h4>You Invest</h4>
         <p>Fund your account starting from $100. Your capital is registered in the system.</p>
       </div>
@@ -136,12 +140,12 @@
         <p>Your funds are combined with other investors to create a large, professionally managed trading capital.</p>
       </div>
       <div class="card fade-up" data-delay="200" style="text-align:center;">
-        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-chart-bar"></i></div>
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-chart-line"></i></div>
         <h4>Professionally Traded</h4>
         <p>Expert traders execute high-probability trades using the pooled capital with proper risk management.</p>
       </div>
       <div class="card fade-up" data-delay="300" style="text-align:center;">
-        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-wallet" style="color:var(--gold);"></i></div>
+        <div class="card-icon" style="margin:0 auto 18px;"><i class="fas fa-wallet"></i></div>
         <h4>You Earn Returns</h4>
         <p>Monthly returns of 10–15% are credited to your account. Withdraw or reinvest — your choice.</p>
       </div>
@@ -168,11 +172,11 @@
         <div class="plan-price"><sup>$</sup>100<span>–$499</span></div>
         <div class="plan-period">Monthly investment cycle</div>
         <ul class="plan-features">
-          <li>10%–15% Monthly ROI</li>
-          <li>Monthly capital + returns withdrawal</li>
-          <li>Reinvestment option</li>
-          <li>Pool performance reports</li>
-          <li>Basic investor dashboard</li>
+          <li><i class="fas fa-percent" style="margin-right: 8px; color: var(--gold);"></i>10%–15% Monthly ROI</li>
+          <li><i class="fas fa-calendar-check" style="margin-right: 8px; color: var(--gold);"></i>Monthly capital + returns withdrawal</li>
+          <li><i class="fas fa-rotate-left" style="margin-right: 8px; color: var(--gold);"></i>Reinvestment option</li>
+          <li><i class="fas fa-chart-simple" style="margin-right: 8px; color: var(--gold);"></i>Pool performance reports</li>
+          <li><i class="fas fa-gauge-high" style="margin-right: 8px; color: var(--gold);"></i>Basic investor dashboard</li>
         </ul>
         <a href="register.html" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Start Investing</a>
       </div>
@@ -182,12 +186,12 @@
         <div class="plan-price"><sup>$</sup>500<span>–$2,999</span></div>
         <div class="plan-period">Monthly investment cycle</div>
         <ul class="plan-features">
-          <li>10%–15% Monthly ROI</li>
-          <li>Monthly capital + returns withdrawal</li>
-          <li>Reinvestment option</li>
-          <li>Priority pool allocation</li>
-          <li>Monthly performance reports</li>
-          <li>Investor support access</li>
+          <li><i class="fas fa-percent" style="margin-right: 8px; color: var(--gold);"></i>10%–15% Monthly ROI</li>
+          <li><i class="fas fa-calendar-check" style="margin-right: 8px; color: var(--gold);"></i>Monthly capital + returns withdrawal</li>
+          <li><i class="fas fa-rotate-left" style="margin-right: 8px; color: var(--gold);"></i>Reinvestment option</li>
+          <li><i class="fas fa-star" style="margin-right: 8px; color: var(--gold);"></i>Priority pool allocation</li>
+          <li><i class="fas fa-file-alt" style="margin-right: 8px; color: var(--gold);"></i>Monthly performance reports</li>
+          <li><i class="fas fa-headset" style="margin-right: 8px; color: var(--gold);"></i>Investor support access</li>
         </ul>
         <a href="register.html" class="btn btn-primary" style="width:100%;justify-content:center;">Join Growth Pool</a>
       </div>
@@ -196,13 +200,13 @@
         <div class="plan-price"><sup>$</sup>3,000<span>+</span></div>
         <div class="plan-period">Monthly investment cycle</div>
         <ul class="plan-features">
-          <li>10%–15% Monthly ROI</li>
-          <li>Monthly capital + returns withdrawal</li>
-          <li>Reinvestment option</li>
-          <li>VIP investor status</li>
-          <li>Direct management access</li>
-          <li>Custom reporting & alerts</li>
-          <li>Priority withdrawal processing</li>
+          <li><i class="fas fa-percent" style="margin-right: 8px; color: var(--gold);"></i>10%–15% Monthly ROI</li>
+          <li><i class="fas fa-calendar-check" style="margin-right: 8px; color: var(--gold);"></i>Monthly capital + returns withdrawal</li>
+          <li><i class="fas fa-rotate-left" style="margin-right: 8px; color: var(--gold);"></i>Reinvestment option</li>
+          <li><i class="fas fa-crown" style="margin-right: 8px; color: var(--gold);"></i>VIP investor status</li>
+          <li><i class="fas fa-user-tie" style="margin-right: 8px; color: var(--gold);"></i>Direct management access</li>
+          <li><i class="fas fa-bell" style="margin-right: 8px; color: var(--gold);"></i>Custom reporting & alerts</li>
+          <li><i class="fas fa-bolt" style="margin-right: 8px; color: var(--gold);"></i>Priority withdrawal processing</li>
         </ul>
         <a href="register.html" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Join Premium Pool</a>
       </div>
@@ -219,12 +223,36 @@
       <div class="divider centered"></div>
     </div>
     <div class="grid-3">
-      <div class="card fade-up"><div class="card-icon"><i class="fas fa-calendar"></i></div><h3>Monthly Returns</h3><p>Earn consistent 10–15% monthly returns, credited directly to your investor account every cycle.</p></div>
-      <div class="card fade-up" data-delay="100"><div class="card-icon"><i class="fas fa-spa"></i></div><h3>Passive Income</h3><p>You don't need trading skills or experience. Simply invest and let professionals manage your capital.</p></div>
-      <div class="card fade-up" data-delay="200"><div class="card-icon"><i class="fas fa-shield"></i></div><h3>Pooled Risk</h3><p>Your capital is spread across multiple trades in the pool, reducing individual exposure and risk.</p></div>
-      <div class="card fade-up" data-delay="100"><div class="card-icon"><i class="fas fa-sync"></i></div><h3>Flexible Withdrawal</h3><p>Access your full capital and earnings at the end of each monthly cycle, no lock-ins.</p></div>
-      <div class="card fade-up" data-delay="200"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Compound & Grow</h3><p>Reinvest your returns each month to harness the power of compounding and accelerate your wealth.</p></div>
-      <div class="card fade-up" data-delay="300"><div class="card-icon"><i class="fas fa-piggy-bank"></i></div><h3>Low Entry Barrier</h3><p>Start with just $100. Accessible to everyday investors without large capital requirements.</p></div>
+      <div class="card fade-up">
+        <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+        <h3>Monthly Returns</h3>
+        <p>Earn consistent 10–15% monthly returns, credited directly to your investor account every cycle.</p>
+      </div>
+      <div class="card fade-up" data-delay="100">
+        <div class="card-icon"><i class="fas fa-spa"></i></div>
+        <h3>Passive Income</h3>
+        <p>You don't need trading skills or experience. Simply invest and let professionals manage your capital.</p>
+      </div>
+      <div class="card fade-up" data-delay="200">
+        <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>Pooled Risk</h3>
+        <p>Your capital is spread across multiple trades in the pool, reducing individual exposure and risk.</p>
+      </div>
+      <div class="card fade-up" data-delay="100">
+        <div class="card-icon"><i class="fas fa-rotate"></i></div>
+        <h3>Flexible Withdrawal</h3>
+        <p>Access your full capital and earnings at the end of each monthly cycle, no lock-ins.</p>
+      </div>
+      <div class="card fade-up" data-delay="200">
+        <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+        <h3>Compound & Grow</h3>
+        <p>Reinvest your returns each month to harness the power of compounding and accelerate your wealth.</p>
+      </div>
+      <div class="card fade-up" data-delay="300">
+        <div class="card-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h3>Low Entry Barrier</h3>
+        <p>Start with just $100. Accessible to everyday investors without large capital requirements.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -245,12 +273,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display:'none'">
+        <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
         <div class="footer-brand-name">PAVILON MIDAS LTD</div>
         <p class="footer-tagline">Empowering Everyday Investors in the Global Forex Market.</p>
         <div class="footer-social">
-          <a href="#" class="social-link"><i class="fab fa-telegram"></i></a><a href="#" class="social-link"><i class="fas fa-comments"></i></a>
-          <a href="#" class="social-link"><i class="fas fa-camera"></i></a><a href="#" class="social-link"><i class="fas fa-users"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="social-link"><i class="fas fa-comments"></i></a>
+          <a href="#" class="social-link"><i class="fas fa-camera"></i></a>
+          <a href="#" class="social-link"><i class="fas fa-users"></i></a>
         </div>
       </div>
       <div class="footer-col"><h5>Services</h5><ul>
@@ -283,22 +313,22 @@
 
 <script src="js/main.js"></script>
 <script>
-const slider = document.getElementById('investSlider');
-const investDisplay = document.getElementById('investDisplay');
-const minReturn = document.getElementById('minReturn');
-const maxReturn = document.getElementById('maxReturn');
-const annualReturn = document.getElementById('annualReturn');
-if (slider) {
-  slider.addEventListener('input', function() {
-    const v = parseInt(this.value);
-    investDisplay.textContent = '$' + v.toLocaleString();
-    minReturn.textContent = '$' + Math.round(v * 0.10).toLocaleString();
-    maxReturn.textContent = '$' + Math.round(v * 0.15).toLocaleString();
-    // 12 months compounded at 12% avg monthly
-    const annual = v * (Math.pow(1.12, 12) - 1);
-    annualReturn.textContent = '~$' + Math.round(annual).toLocaleString();
-  });
-}
+  const slider = document.getElementById('investSlider');
+  const investDisplay = document.getElementById('investDisplay');
+  const minReturn = document.getElementById('minReturn');
+  const maxReturn = document.getElementById('maxReturn');
+  const annualReturn = document.getElementById('annualReturn');
+  if (slider) {
+    slider.addEventListener('input', function() {
+      const v = parseInt(this.value);
+      investDisplay.textContent = '$' + v.toLocaleString();
+      minReturn.textContent = '$' + Math.round(v * 0.10).toLocaleString();
+      maxReturn.textContent = '$' + Math.round(v * 0.15).toLocaleString();
+      // 12 months compounded at 12% avg monthly
+      const annual = v * (Math.pow(1.12, 12) - 1);
+      annualReturn.textContent = '~$' + Math.round(annual).toLocaleString();
+    });
+  }
 </script>
 </body>
 </html>

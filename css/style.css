@@ -491,7 +491,19 @@ i, .fas, .fab { display: inline-block; }
 }
 .card-icon i {
   color: var(--gold);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 1.6rem !important;
+  line-height: 1 !important;
 }
+.card-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 .card-dark .card-icon {
   background: rgba(232,122,32,0.15);
   border-color: rgba(232,122,32,0.25);
