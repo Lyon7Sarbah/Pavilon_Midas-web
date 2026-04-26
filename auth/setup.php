@@ -1,6 +1,6 @@
 <?php
 // ============================================
-// PAVILON MIDAS LTD — DATABASE SETUP
+// Pavilion Midas Academy Ltd — DATABASE SETUP
 // ============================================
 // Run this file once to create the database tables
 // Then delete this file for security

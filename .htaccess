@@ -1,57 +1,89 @@
 # ============================================
-# PAVILON MIDAS LTD — SECURITY & URL REWRITE
+# Pavilion Midas Academy Ltd — SECURITY & URL REWRITE
 # ============================================
 
-# Security headers
-<IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-</IfModule>
-
-# Prevent access to sensitive files
-<Files "config.php">
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files "setup.php">
-    Order allow,deny
-    Deny from all
-</Files>
-
-# Prevent access to includes directory
-<Directory "includes/">
-    Order allow,deny
-    Deny from all
-</Directory>
-
-# URL rewriting for clean URLs (optional)
 <IfModule mod_rewrite.c>
     RewriteEngine On
-
-    # Redirect HTTP to HTTPS
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
+    
+    # ============================================
+    # FIX: Redirect from /public/ back to root
+    # ============================================
+    
+    # If request starts with /public/, redirect to root without /public
+    RewriteCond %{REQUEST_URI} ^/public/(.*)$
+    RewriteRule ^public/(.*)$ /$1 [R=301,L]
+    
+    # If the requested file doesn't exist in root, try looking in /public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/public/%{REQUEST_URI} -f
+    RewriteRule ^(.*)$ /public/$1 [L]
+    
+    # Force HTTPS (uncomment when SSL is active)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
     # Remove trailing slashes
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [R=301,L]
-
-    # Handle PHP files without .php extension (optional)
+    
+    # Handle PHP files without .php extension
     # RewriteCond %{REQUEST_FILENAME} !-f
     # RewriteCond %{REQUEST_FILENAME} !-d
     # RewriteCond %{REQUEST_FILENAME}.php -f
     # RewriteRule ^(.*)$ $1.php [L]
+    
+    # Block access to PHP files in includes directory
+    RewriteRule ^includes/.*\.php$ - [F,L]
+    
+    # Block access to auth directory PHP files (except login/register)
+    RewriteRule ^auth/(?!login\.php|register\.php).*\.php$ - [F,L]
 </IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # HSTS (enable only after confirming HTTPS works - uncomment after testing)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Remove server signature
+    ServerSignature Off
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|config.php|setup.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to includes directory and its contents
+<DirectoryMatch "^(includes/|assets/includes/)">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+
+# Block access to hidden files (starting with dot)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
 # PHP settings for security
 <IfModule mod_php.c>
     php_value session.cookie_httponly 1
     php_value session.cookie_secure 1
+    php_value session.cookie_samesite "Strict"
     php_value session.use_only_cookies 1
     php_value session.use_strict_mode 1
+    php_value expose_php Off
+    php_value display_errors Off
+    php_value log_errors On
+    php_value error_log "/path/to/error.log"
 </IfModule>
 
 # Prevent directory listing
@@ -71,4 +103,19 @@ AddDefaultCharset UTF-8
     AddOutputFilterByType DEFLATE application/rss+xml
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Block bad bots and scrapers (optional)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} (bot|crawler|scraper|spider|scanner) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Limit file upload size (if applicable)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 5M
+    php_value post_max_size 5M
+    php_value max_execution_time 30
 </IfModule>

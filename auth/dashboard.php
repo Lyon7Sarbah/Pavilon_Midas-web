@@ -1,6 +1,6 @@
 <?php
 // ============================================
-// PAVILON MIDAS LTD — USER DASHBOARD
+// Pavilion Midas Academy Ltd — USER DASHBOARD
 // ============================================
 
 require_once '../includes/config.php';
@@ -49,7 +49,7 @@ try {
 }
 
 // Include header
-$page_title = 'Dashboard — Pavilon Midas Ltd';
+$page_title = 'Dashboard — Pavilion Midas Academy Ltd';
 include '../includes/header.php';
 ?>
 

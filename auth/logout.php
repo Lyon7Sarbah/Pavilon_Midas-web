@@ -1,6 +1,6 @@
 <?php
 // ============================================
-// PAVILON MIDAS LTD — LOGOUT PROCESSING
+// Pavilion Midas Academy Ltd — LOGOUT PROCESSING
 // ============================================
 
 require_once '../includes/config.php';

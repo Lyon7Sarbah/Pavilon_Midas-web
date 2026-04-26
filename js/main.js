@@ -1,5 +1,5 @@
 // ============================================
-// PAVILON MIDAS LTD — MAIN JAVASCRIPT
+// Pavilion Midas Academy Ltd — MAIN JAVASCRIPT
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function () {

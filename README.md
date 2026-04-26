@@ -1,4 +1,4 @@
-# Pavilon Midas Ltd - Authentication System Setup
+# Pavilion Midas Academy Ltd - Authentication System Setup
 
 ## Overview
 This authentication system provides secure user registration, login, and dashboard functionality for the Pavilon Midas financial services website.

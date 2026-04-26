@@ -2,27 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login — Pavilon Midas Ltd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Login — Pavilion Midas Academy Ltd</title>
+  <meta name="description" content="Sign in to your Pavilon Midas account to access forex signals, pool investments, and referral dashboard." />
   
   <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <style>
-    /* Previous styles remain same */
+    /* PREVENT PAGE SCROLL - Lock body completely */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+    
+    body {
+      overflow: hidden;
+    }
+    
+    /* Fixed background that doesn't move */
     .auth-page {
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
       background-image: url('assets/login-bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      overflow: hidden;
     }
     
+    /* Subtle overlay - allows background to show */
     .auth-page::before {
       content: '';
       position: absolute;
@@ -30,197 +53,588 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(8, 15, 34, 0.85) 0%, rgba(13, 27, 62, 0.75) 100%);
+      background: linear-gradient(135deg, rgba(8, 15, 34, 0.7) 0%, rgba(13, 27, 62, 0.65) 100%);
       z-index: 0;
+      pointer-events: none;
     }
     
-    .auth-page .auth-card {
+    /* Main container - handles centering with navbar space */
+    .auth-main {
       position: relative;
       z-index: 1;
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.95);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px 20px 20px;
+      overflow: hidden;
+    }
+    
+    /* SCROLLABLE FORM CARD */
+    .auth-card {
+      max-width: 480px;
+      width: 100%;
+      max-height: 85vh;
+      background: var(--white);
+      border-radius: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Inner scrollable content */
+    .auth-card-content {
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 24px 28px 28px;
+      scroll-behavior: smooth;
+    }
+    
+    /* SCROLLBAR - Completely invisible, appears only on hover */
+    .auth-card-content {
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+      transition: scrollbar-color 0.3s ease;
+    }
+    
+    .auth-card-content:hover {
+      scrollbar-color: var(--gold) transparent;
+    }
+    
+    /* For WebKit browsers - hidden until hover */
+    .auth-card-content::-webkit-scrollbar {
+      width: 4px;
+      position: absolute;
+      right: 0;
+    }
+    
+    .auth-card-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .auth-card-content::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    
+    .auth-card-content:hover::-webkit-scrollbar-thumb {
+      background: var(--gold);
+    }
+    
+    .auth-card-content:hover::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    /* Form spacing - compact */
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: var(--navy);
+    }
+    
+    .form-label i {
+      width: 18px;
+      color: var(--gold);
+      margin-right: 4px;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 0.85rem;
+      border: 1.5px solid var(--gray-100);
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      background: var(--white);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232, 122, 32, 0.1);
+    }
+    
+    /* Password field */
+    .password-wrapper {
+      position: relative;
     }
     
     .password-toggle {
       position: absolute;
-      right: 14px;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--gray-500);
       padding: 4px;
-      transition: var(--transition);
+      transition: color 0.2s;
     }
     
     .password-toggle:hover {
       color: var(--gold);
     }
     
+    /* Auth header elements */
+    .auth-logo {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    
+    .auth-logo img {
+      height: 40px;
+      width: auto;
+    }
+    
+    .auth-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+    
+    .auth-subtitle {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      margin-bottom: 22px;
+    }
+    
+    /* Checkbox row */
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .checkbox-wrapper input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    
+    .checkbox-wrapper label {
+      font-size: 0.78rem;
+      color: var(--gray-700);
+      cursor: pointer;
+    }
+    
+    .forgot-link {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+    
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 18px;
+      color: var(--gray-400);
+      font-size: 0.75rem;
+    }
+    
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+    
+    /* Social buttons */
+    .social-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      color: var(--navy);
+    }
+    
+    .social-btn:hover {
+      border-color: var(--gold);
+      background: var(--off-white);
+    }
+    
+    .social-btn i {
+      font-size: 1rem;
+    }
+    
+    .social-btn i.fa-telegram {
+      color: #0088cc;
+    }
+    
+    .social-btn i.fa-google {
+      color: #db4437;
+    }
+    
+    /* Security badges */
+    .security-badge {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 18px;
+      font-size: 0.6rem;
+      color: var(--gray-500);
+      flex-wrap: wrap;
+    }
+    
+    .security-badge i {
+      margin-right: 4px;
+    }
+    
+    .security-badge span i.fa-lock { color: #2ecc71; }
+    .security-badge span i.fa-shield-alt { color: #2ecc71; }
+    .security-badge span i.fa-clock { color: #2ecc71; }
+    
+    /* Legal footer */
+    .legal-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--gray-100);
+    }
+    
+    .legal-footer a {
+      font-size: 0.62rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .legal-footer a:hover {
+      color: var(--gold);
+    }
+    
+    .auth-footer {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+    }
+    
+    .auth-footer a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .btn-primary {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      justify-content: center;
+    }
+    
+    /* Alert styles */
+    .alert {
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      font-size: 0.75rem;
+    }
+    
+    .alert-error {
+      background: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.2);
+      color: #c0392b;
+    }
+    
+    .alert-success {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.2);
+      color: #27ae60;
+    }
+    
+    .alert ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    
     /* Rate limit indicator */
     .login-attempts {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       color: var(--gray-500);
-      margin-top: 8px;
+      margin-top: 12px;
       text-align: center;
     }
     
-    /* 2FA input styling */
-    .otp-input {
-      letter-spacing: 8px;
-      font-size: 1.5rem;
-      text-align: center;
-      font-weight: 600;
+    /* Responsive */
+    @media (max-width: 560px) {
+      .auth-main {
+        padding: 70px 16px 16px 16px;
+      }
+      
+      .auth-card {
+        max-height: 88vh;
+      }
+      
+      .auth-card-content {
+        padding: 20px 20px 24px;
+      }
+      
+      .auth-title {
+        font-size: 1.3rem;
+      }
+      
+      .social-buttons {
+        gap: 10px;
+      }
+      
+      .social-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+      }
+    }
+    
+    @media (max-width: 420px) {
+      .auth-card-content {
+        padding: 16px 16px 20px;
+      }
+      
+      .auth-title {
+        font-size: 1.2rem;
+      }
+      
+      .checkbox-wrapper label {
+        font-size: 0.7rem;
+      }
+      
+      .forgot-link {
+        font-size: 0.7rem;
+      }
+      
+      .legal-footer {
+        gap: 10px;
+      }
+      
+      .legal-footer a {
+        font-size: 0.55rem;
+      }
     }
   </style>
 </head>
 <body>
 
 <nav class="navbar">
-  <!-- Navigation same as before -->
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="signals.html"><i class="fas fa-chart-bar"></i> Forex Signals</a>
+          <a href="pool-investment.html"><i class="fas fa-wallet"></i> Forex Trading Pool</a>
+          <a href="referral.html"><i class="fas fa-handshake"></i> Referral Program</a>
+        </div>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="referral.html">Referral</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://app.pavilonmidas.com/login" class="btn btn-outline btn-sm active">Login</a>
+      <a href="https://app.pavilonmidas.com/register" class="btn btn-primary btn-sm">Register</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
 </nav>
 
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="signals.html">Forex Signals</a>
+  <a href="pool-investment.html">Forex Trading Pool</a>
+  <a href="referral.html">Referral Program</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://app.pavilonmidas.com/login" class="btn btn-outline">Login</a>
+  <a href="https://app.pavilonmidas.com/register" class="btn btn-primary">Register</a>
+</div>
+
 <div class="auth-page">
-  <div class="auth-card fade-in visible">
-    <div class="auth-logo">
-      <img src="assets/logo1.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <!--<div style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:6px;">Asset Management Ltd</div>-->
-    </div>
-    
-    <h2 class="auth-title">Secure Login</h2>
-    <p class="auth-subtitle">Your security is our priority. All data is encrypted.</p>
+  <div class="auth-main">
+    <div class="auth-card">
+      <div class="auth-card-content">
+        <div class="auth-logo">
+          <img src="assets/logo1.png" alt="Pavilon Midas" onerror="this.style.display='none'">
+        </div>
+        
+        <h2 class="auth-title">Welcome Back</h2>
+        <p class="auth-subtitle">Sign in to access your signals, pool investments, and referral dashboard</p>
 
-    <!-- CSRF Token (would be generated server-side) -->
-    <input type="hidden" id="csrf_token" name="csrf_token" value="">
-    
-    <!-- Honeypot field for bot protection -->
-    <input type="text" name="website" style="display:none;" autocomplete="off">
+        <!-- Display errors if any -->
+        <div id="errorAlert" style="display:none;" class="alert alert-error"></div>
 
-    <form action="auth/login.php" method="post" id="loginForm" autocomplete="on">
-      <div class="form-group">
-        <label class="form-label" for="email">
-          <i class="fas fa-envelope" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
-          Email Address
-        </label>
-        <input type="email" 
-               id="email" 
-               name="email" 
-               class="form-control" 
-               placeholder="you@example.com" 
-               required 
-               autocomplete="email"
-               maxlength="100"
-               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-               title="Please enter a valid email address">
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label" for="loginPassword" style="display:flex;justify-content:space-between;align-items:center;">
-          <span>
-            <i class="fas fa-lock" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
-            Password
-          </span>
-          <a href="forgot-password.html" style="font-weight:400;color:var(--gold);font-size:0.82rem;">
-            <i class="fas fa-key" style="margin-right: 4px;"></i>Forgot?
-          </a>
-        </label>
-        <div style="position:relative;">
-          <input type="password" 
-                 class="form-control" 
-                 id="loginPassword" 
-                 name="password" 
-                 placeholder="••••••••" 
-                 required 
-                 autocomplete="current-password"
-                 minlength="8"
-                 maxlength="128">
-          <button type="button" onclick="togglePassword('loginPassword', this)" class="password-toggle">
-            <i class="fas fa-eye"></i>
+        <form action="auth/login.php" method="post" id="loginForm" autocomplete="off">
+          <input type="hidden" id="csrf_token" name="csrf_token" value="">
+          <input type="text" name="website" id="honeypot" style="display:none;" autocomplete="off">
+          <input type="hidden" name="form_submit_time" id="formSubmitTime" value="">
+          
+          <div class="form-group">
+            <label class="form-label"><i class="fas fa-envelope"></i> Email Address</label>
+            <input type="email" 
+                   id="email" 
+                   name="email" 
+                   class="form-control" 
+                   placeholder="you@example.com" 
+                   required 
+                   autocomplete="off"
+                   maxlength="100">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" style="display:flex; justify-content:space-between;">
+              <span><i class="fas fa-lock"></i> Password</span>
+              <a href="forgot-password.html" class="forgot-link"><i class="fas fa-key"></i> Forgot?</a>
+            </label>
+            <div class="password-wrapper">
+              <input type="password" 
+                     id="loginPassword" 
+                     name="password" 
+                     class="form-control" 
+                     placeholder="••••••••" 
+                     required 
+                     autocomplete="off"
+                     minlength="8"
+                     maxlength="128">
+              <button type="button" onclick="togglePassword('loginPassword', this)" class="password-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="checkbox-row">
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="rememberMe" name="remember">
+              <label for="rememberMe">Remember this device</label>
+            </div>
+            <div>
+              <i class="fas fa-shield-alt" style="color: #2ecc71; font-size: 0.7rem;"></i>
+              <span style="font-size:0.65rem;color:var(--gray-500);"> SSL/TLS Secured</span>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" id="loginButton">
+            <i class="fas fa-sign-in-alt"></i> Secure Sign In
+          </button>
+          
+          <div class="login-attempts" id="attemptMessage">
+            <i class="fas fa-shield-alt"></i> Secure login with 256-bit encryption
+          </div>
+        </form>
+
+        <div class="auth-divider">or continue with</div>
+        
+        <div class="social-buttons">
+          <button type="button" class="social-btn" onclick="handleTelegramLogin()">
+            <i class="fab fa-telegram"></i> Telegram
+          </button>
+          <button type="button" class="social-btn" onclick="handleGoogleLogin()">
+            <i class="fab fa-google"></i> Google
           </button>
         </div>
-      </div>
-      
-      <!-- 2FA Section (shown if enabled for account) -->
-      <div id="otpSection" style="display:none;" class="form-group">
-        <label class="form-label" for="otpCode">
-          <i class="fas fa-shield-alt" style="margin-right: 6px; color: var(--gold); font-size: 0.9rem;"></i>
-          Two-Factor Authentication Code
-        </label>
-        <input type="text" 
-               id="otpCode" 
-               name="otp_code" 
-               class="form-control otp-input" 
-               placeholder="000000" 
-               maxlength="6" 
-               pattern="[0-9]{6}"
-               inputmode="numeric"
-               autocomplete="one-time-code">
-        <small style="color: var(--gray-500); display: block; margin-top: 4px;">
-          <i class="fas fa-info-circle"></i> Enter the 6-digit code from your authenticator app
-        </small>
-      </div>
-      
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <input type="checkbox" 
-                 id="rememberMe" 
-                 name="remember" 
-                 style="accent-color:var(--gold);width:16px;height:16px;cursor:pointer;">
-          <label for="rememberMe" style="font-size:0.88rem;color:var(--gray-700);cursor:pointer;">
-            Remember this device
-          </label>
+
+        <div class="auth-footer">
+          Don't have an account? <a href="https://app.pavilonmidas.com/register">Create secure account <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div>
-          <i class="fas fa-shield" style="color: #2ecc71; font-size: 0.7rem;"></i>
-          <span style="font-size:0.75rem;color:var(--gray-500);">Secured by SSL/TLS</span>
+        
+        <div class="security-badge">
+          <span><i class="fas fa-lock"></i> 256-bit Encryption</span>
+          <span><i class="fas fa-shield-alt"></i> DDoS Protected</span>
+          <span><i class="fas fa-clock"></i> 24/7 Monitoring</span>
+        </div>
+        
+        <div class="legal-footer">
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="aml-policy.html">AML Policy</a>
         </div>
       </div>
-      
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;" id="loginButton">
-        <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Secure Sign In
-      </button>
-      
-      <div class="login-attempts">
-        <i class="fas fa-history"></i> 
-        <span id="attemptMessage">3 attempts remaining</span>
-      </div>
-    </form>
-
-    <div class="auth-divider">or continue securely with</div>
-    
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <button class="btn btn-outline-gold" style="justify-content:center;font-size:0.85rem;" onclick="handleTelegramLogin()">
-        <i class="fab fa-telegram"></i> Telegram
-      </button>
-      <button class="btn social-btn" onclick="handleGoogleLogin()">
-        <i class="fab fa-google"></i> Google
-      </button>
-    </div>
-
-    <div class="auth-footer">
-      Don't have an account? <a href="register.html">Create secure account <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 4px;"></i></a>
-    </div>
-    
-    <!-- Security Badges -->
-    <div style="margin-top: 20px; display: flex; justify-content: center; gap: 16px; font-size: 0.7rem; color: var(--gray-500);">
-      <span><i class="fas fa-lock" style="color: #2ecc71;"></i> 256-bit Encryption</span>
-      <span><i class="fas fa-shield" style="color: #2ecc71;"></i> DDoS Protected</span>
-      <span><i class="fas fa-clock" style="color: #2ecc71;"></i> 24/7 Monitoring</span>
     </div>
   </div>
 </div>
 
 <button class="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
-<script src="js/main.js"></script>
 <script>
-// Secure password toggle with accessibility
+// ============================================
+// SECURE LOGIN - CLIENT SIDE
+// ============================================
+
+// Generate cryptographically secure CSRF token
+function generateCSRFToken() {
+  const array = new Uint32Array(8);
+  if (window.crypto && window.crypto.getRandomValues) {
+    window.crypto.getRandomValues(array);
+    const token = Array.from(array, dec => dec.toString(16).padStart(8, '0')).join('');
+    document.getElementById('csrf_token').value = token;
+    sessionStorage.setItem('csrf_token', token);
+  } else {
+    const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
+    document.getElementById('csrf_token').value = token;
+    sessionStorage.setItem('csrf_token', token);
+  }
+}
+
+// Set form submit timestamp for rate limiting
+function setFormTimestamp() {
+  document.getElementById('formSubmitTime').value = Date.now();
+}
+
+// Toggle password visibility
 function togglePassword(id, btn) {
   const input = document.getElementById(id);
   const icon = btn.querySelector('i');
-  
   if (input.type === 'password') {
     input.type = 'text';
     icon.classList.remove('fa-eye');
@@ -232,110 +646,130 @@ function togglePassword(id, btn) {
   }
 }
 
-// Generate and set CSRF token (would normally come from server)
-function generateCSRFToken() {
-  const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
-  document.getElementById('csrf_token').value = token;
-  // Store in sessionStorage for validation
-  sessionStorage.setItem('csrf_token', token);
+// Show error message
+function showError(message) {
+  const errorDiv = document.getElementById('errorAlert');
+  errorDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + message;
+  errorDiv.style.display = 'block';
+  setTimeout(() => {
+    errorDiv.style.display = 'none';
+  }, 5000);
 }
 
-// Rate limiting and login attempt tracking
+// Track login attempts
 let loginAttempts = 0;
-const MAX_ATTEMPTS = 3;
-let lockoutTimer = null;
+const MAX_ATTEMPTS = 5;
 
+function updateAttemptMessage() {
+  const msgDiv = document.getElementById('attemptMessage');
+  const remaining = MAX_ATTEMPTS - loginAttempts;
+  if (remaining > 0 && remaining <= 3) {
+    msgDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + remaining + ' login attempts remaining';
+    msgDiv.style.color = '#e87a20';
+  } else if (remaining <= 0) {
+    msgDiv.innerHTML = '<i class="fas fa-lock"></i> Too many failed attempts. Try again later.';
+    msgDiv.style.color = '#e74c3c';
+  }
+}
+
+// Form submission with security checks
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-  // Check CSRF token
+  e.preventDefault();
+  
+  // CSRF validation
   const storedToken = sessionStorage.getItem('csrf_token');
   const formToken = document.getElementById('csrf_token').value;
   
   if (!storedToken || storedToken !== formToken) {
-    e.preventDefault();
-    alert('Security validation failed. Please refresh the page.');
+    showError('Security validation failed. Please refresh the page and try again.');
     return false;
   }
   
-  // Check for lockout
+  // Honeypot check
+  const honeypot = document.getElementById('honeypot').value;
+  if (honeypot) {
+    showError('Invalid request');
+    return false;
+  }
+  
+  // Rate limiting - check submission speed
+  const submitTime = parseInt(document.getElementById('formSubmitTime').value);
+  const now = Date.now();
+  if (submitTime && (now - submitTime) < 2000) {
+    showError('Please wait a moment before submitting');
+    return false;
+  }
+  
+  // Check for lockout from server-side (will be handled server-side)
   if (sessionStorage.getItem('lockoutUntil')) {
     const lockoutUntil = parseInt(sessionStorage.getItem('lockoutUntil'));
     if (Date.now() < lockoutUntil) {
-      e.preventDefault();
       const minutesLeft = Math.ceil((lockoutUntil - Date.now()) / 60000);
-      alert(`Too many failed attempts. Please try again in ${minutesLeft} minutes.`);
+      showError(`Too many failed attempts. Please try again in ${minutesLeft} minutes.`);
       return false;
+    } else {
+      sessionStorage.removeItem('lockoutUntil');
     }
   }
   
-  // Disable button to prevent double submission
+  // Email validation
+  const email = document.getElementById('email').value;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showError('Please enter a valid email address');
+    document.getElementById('email').focus();
+    return false;
+  }
+  
+  // Password validation
+  const password = document.getElementById('loginPassword').value;
+  if (!password || password.length < 8) {
+    showError('Please enter your password');
+    document.getElementById('loginPassword').focus();
+    return false;
+  }
+  
+  // Disable submit button to prevent double submission
   const btn = document.getElementById('loginButton');
   btn.disabled = true;
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
   
-  // Re-enable after 3 seconds (in case of network issues)
-  setTimeout(() => {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Secure Sign In';
-  }, 3000);
+  // Submit form
+  this.submit();
 });
 
 // Secure OAuth handlers
 function handleTelegramLogin() {
-  // Implement secure Telegram OAuth
-  const telegramAuthUrl = 'https://oauth.telegram.org/auth?bot_id=YOUR_BOT_ID&origin=' + encodeURIComponent(window.location.origin);
-  window.location.href = telegramAuthUrl;
+  const state = Math.random().toString(36).substring(2, 15);
+  sessionStorage.setItem('oauth_state', state);
+  // Replace with your actual Telegram bot ID
+  const botId = 'YOUR_BOT_ID';
+  const redirectUri = encodeURIComponent(window.location.origin + '/auth/telegram-callback.php');
+  window.location.href = `https://oauth.telegram.org/auth?bot_id=${botId}&origin=${encodeURIComponent(window.location.origin)}&state=${state}`;
 }
 
 function handleGoogleLogin() {
-  // Implement secure Google OAuth with state parameter
-  const state = Math.random().toString(36).substring(7);
+  const state = Math.random().toString(36).substring(2, 15);
   sessionStorage.setItem('oauth_state', state);
-  
-  const googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' +
-    'client_id=YOUR_CLIENT_ID' +
-    '&redirect_uri=' + encodeURIComponent(window.location.origin + '/auth/google-callback.php') +
-    '&response_type=code' +
-    '&scope=email%20profile' +
-    '&state=' + state;
-  
-  window.location.href = googleAuthUrl;
+  // Replace with your actual Google Client ID
+  const clientId = 'YOUR_GOOGLE_CLIENT_ID';
+  const redirectUri = encodeURIComponent(window.location.origin + '/auth/google-callback.php');
+  window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=email%20profile&state=${state}`;
 }
 
-// Initialize security features
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
   generateCSRFToken();
+  setFormTimestamp();
   
-  // Clear sensitive data from session when page unloads
+  document.getElementById('loginForm').addEventListener('focus', function() {
+    setFormTimestamp();
+  }, true);
+  
+  // Clear sensitive data on page unload
   window.addEventListener('beforeunload', function() {
-    // Don't clear CSRF token as it's needed for form submission
+    // Session storage persists for CSRF token
   });
-  
-  // Prevent form resubmission on page refresh
-  if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-  }
-  
-  // Animate card
-  const authCard = document.querySelector('.auth-card');
-  if (authCard) {
-    authCard.style.opacity = '0';
-    authCard.style.transform = 'translateY(20px)';
-    
-    setTimeout(() => {
-      authCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      authCard.style.opacity = '1';
-      authCard.style.transform = 'translateY(0)';
-    }, 100);
-  }
 });
-
-// Clear session storage on successful login (would be called after successful auth)
-function handleSuccessfulLogin() {
-  sessionStorage.removeItem('csrf_token');
-  sessionStorage.removeItem('lockoutUntil');
-  loginAttempts = 0;
-}
 </script>
-
 </body>
 </html>
