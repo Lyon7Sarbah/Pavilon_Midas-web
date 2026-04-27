@@ -2,11 +2,190 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Contact Us — Pavilion Midas Academy Ltd</title>
+  <meta name="description" content="Get in touch with Pavilion Midas Academy Ltd. Our global support team is ready to assist you with forex signals, trading pool, and referral program inquiries." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <style>
+    /* Mobile responsive fixes */
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 50px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 1.6rem !important;
+      }
+      
+      .page-hero p {
+        font-size: 0.9rem !important;
+      }
+      
+      .contact-info-item {
+        padding: 14px 0 !important;
+      }
+      
+      .contact-icon {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1rem !important;
+      }
+      
+      .contact-info-text h4 {
+        font-size: 0.9rem !important;
+      }
+      
+      .contact-info-text p {
+        font-size: 0.8rem !important;
+      }
+      
+      .contact-card {
+        padding: 28px 24px !important;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 16px !important;
+      }
+      
+      .social-follow {
+        flex-wrap: wrap;
+        justify-content: center !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .page-hero h1 {
+        font-size: 1.3rem !important;
+      }
+      
+      .contact-card {
+        padding: 20px 18px !important;
+      }
+      
+      .contact-info-item {
+        gap: 12px !important;
+      }
+      
+      .form-group {
+        margin-bottom: 14px !important;
+      }
+      
+      .form-control {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+      }
+      
+      .btn-primary {
+        padding: 12px 16px !important;
+        font-size: 0.85rem !important;
+      }
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: start;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    
+    .contact-info-item:last-child {
+      border-bottom: none;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(232, 122, 32, 0.1), rgba(232, 122, 32, 0.05));
+      border: 1px solid rgba(232, 122, 32, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    
+    .contact-info-text h4 {
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+    
+    .contact-info-text p {
+      color: var(--gray-700);
+      font-size: 0.85rem;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+    
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-100);
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+    }
+    
+    .social-follow {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .social-link-custom {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--off-white);
+      border: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.3s;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    
+    .social-link-custom:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,12 +193,11 @@
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <!--<div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>-->
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <div class="dropdown">
-        <a href="services.html">Services <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i></a>
+        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown-menu">
           <a href="signals.html"><i class="fas fa-chart-bar"></i> Forex Signals</a>
           <a href="pool-investment.html"><i class="fas fa-wallet"></i> Forex Trading Pool</a>
@@ -37,6 +215,7 @@
     <div class="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
+
 <div class="mobile-menu">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
@@ -53,7 +232,7 @@
   <div class="container">
     <div class="page-hero-label">Get In Touch</div>
     <h1>We're Here to <span class="text-gold">Help You</span></h1>
-    <p>Have questions about our services, plans, or how to get started? Reach out — our team is ready to assist you.</p>
+    <p>Have questions about our services, plans, or how to get started? Our global support team is ready to assist you.</p>
     <div class="breadcrumb">
       <a href="index.html">Home</a><span class="sep">›</span><span>Contact Us</span>
     </div>
@@ -62,13 +241,13 @@
 
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start;">
+    <div class="contact-grid">
       <!-- CONTACT INFO -->
       <div class="fade-up">
         <div class="section-label">Reach Out</div>
         <h2>Contact <span class="text-gold">Information</span></h2>
         <div class="divider"></div>
-        <p style="color:var(--gray-700);margin-bottom:32px;">We operate across Ghana and Nigeria. Choose the most convenient way to reach us.</p>
+        <p style="color:var(--gray-700);margin-bottom:28px;">Connect with our global support team. Choose the most convenient way to reach us.</p>
         <div class="contact-info-item">
           <div class="contact-icon"><i class="fas fa-envelope"></i></div>
           <div class="contact-info-text">
@@ -89,44 +268,40 @@
           <div class="contact-icon"><i class="fas fa-comments"></i></div>
           <div class="contact-info-text">
             <h4>WhatsApp</h4>
-            <p>Ghana: +233 54 958 1779</p>
-            <p>Nigeria: +234 XX XXXX XXXX</p>
+            <p>Global Support: +233 54 958 1779</p>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-icon"><i class="fas fa-map-pin"></i></div>
+          <div class="contact-icon"><i class="fas fa-globe"></i></div>
           <div class="contact-info-text">
-            <h4>Operations</h4>
-            <p>Ghana — Accra</p>
-            <p>Nigeria — 23 Alagbaka, Akure Ondo State, Nigeria</p>
+            <h4>Global Operations</h4>
+            <p>Accra, Ghana</p>
+            <p>Serving investors worldwide</p>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-icon"><i class="fas fa-clock"></i></div>
           <div class="contact-info-text">
             <h4>Support Hours</h4>
-            <p>Monday – Friday: 8:00 AM – 6:00 PM WAT</p>
-            <p>Saturday: 9:00 AM – 2:00 PM WAT</p>
+            <p>Monday – Friday: 8:00 AM – 6:00 PM GMT</p>
+            <p>Saturday: 9:00 AM – 2:00 PM GMT</p>
           </div>
         </div>
-        <div style="margin-top:28px;">
-          <div style="margin-bottom:12px;font-weight:600;font-size:0.9rem;color:var(--navy);">Follow Us</div>
-          <div style="display:flex;gap:10px;">
-            <a href="#" class="social-link" style="background:var(--off-white);border-color:var(--gray-100);color:var(--navy);"><i class="fab fa-telegram"></i></a>
-            <a href="#" class="social-link" style="background:var(--off-white);border-color:var(--gray-100);color:var(--navy);"><i class="fas fa-comments"></i></a>
-            <a href="#" class="social-link" style="background:var(--off-white);border-color:var(--gray-100);color:var(--navy);"><i class="fas fa-camera"></i></a>
-            <a href="#" class="social-link" style="background:var(--off-white);border-color:var(--gray-100);color:var(--navy);"><i class="fas fa-users"></i></a>
-            <a href="#" class="social-link" style="background:var(--off-white);border-color:var(--gray-100);color:var(--navy);"><i class="fas fa-music"></i></a>
-          </div>
+        <div class="social-follow">
+          <a href="#" class="social-link-custom" title="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="social-link-custom" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link-custom" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link-custom" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link-custom" title="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
       <!-- CONTACT FORM -->
       <div class="fade-up" data-delay="200">
         <div class="contact-card">
           <h3 style="margin-bottom:8px;">Send Us a Message</h3>
-          <p style="color:var(--gray-700);font-size:0.9rem;margin-bottom:28px;">Fill out the form below and we'll get back to you within 24 hours.</p>
+          <p style="color:var(--gray-700);font-size:0.85rem;margin-bottom:24px;">Fill out the form below and we'll get back to you within 24 hours.</p>
           <form data-ajax>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-row">
               <div class="form-group">
                 <label class="form-label">First Name</label>
                 <input type="text" class="form-control" placeholder="Kwame" required>
@@ -158,9 +333,9 @@
             </div>
             <div class="form-group">
               <label class="form-label">Message</label>
-              <textarea class="form-control" placeholder="Tell us how we can help you..." required></textarea>
+              <textarea class="form-control" placeholder="Tell us how we can help you..." rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">Send Message <i class="fas fa-envelope"></i></button>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-envelope"></i> Send Message</button>
           </form>
         </div>
       </div>
@@ -194,8 +369,8 @@
         <div class="accordion-body"><p>No. The platform is designed for both beginners and experienced traders. You can choose to follow strategies, copy trades, or manage investments through structured systems.</p></div>
       </div>
       <div class="accordion-item">
-        <div class="accordion-header">What is Pavilon Midas? <span class="acc-icon">+</span></div>
-        <div class="accordion-body"><p>Pavilon Midas is a structured financial platform offering trading tools, market analysis, copy trading, and managed portfolio access for investors at different experience levels.</p></div>
+        <div class="accordion-header">What is Pavilion Midas Academy Ltd? <span class="acc-icon">+</span></div>
+        <div class="accordion-body"><p>Pavilion Midas Academy Ltd is a global financial platform offering trading tools, market analysis, copy trading, and managed portfolio access for investors at different experience levels.</p></div>
       </div>
       <div class="accordion-item">
         <div class="accordion-header">How do I get started? <span class="acc-icon">+</span></div>
@@ -205,7 +380,7 @@
   </div>
 </section>
 
-<!-- FOOTER - Core social platforms only -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
