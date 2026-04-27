@@ -2,11 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Pavilion Midas Academy Ltd</title>
-  <meta name="description" content="Africa's trusted forex signal provider and pool investment platform. Professional signals with proven performance and consistent monthly returns." />
+  <meta name="description" content="Global forex signal provider and pool investment platform. Professional signals with proven performance and consistent monthly returns for investors worldwide." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <style>
+    /* Additional mobile responsive fixes */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.8rem !important;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.95rem !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      
+      .stat-item {
+        padding: 15px !important;
+      }
+      
+      .stat-number {
+        font-size: 2rem !important;
+      }
+      
+      .trust-logos {
+        gap: 20px !important;
+      }
+      
+      .trust-logo {
+        font-size: 0.85rem !important;
+      }
+      
+      .grid-3 {
+        gap: 20px !important;
+      }
+      
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .hero-ctas a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.4rem !important;
+      }
+      
+      .hero-badge {
+        font-size: 0.7rem !important;
+      }
+      
+      .stat-number {
+        font-size: 1.6rem !important;
+      }
+      
+      .stat-label {
+        font-size: 0.7rem !important;
+      }
+      
+      .trust-logo {
+        font-size: 0.75rem !important;
+      }
+      
+      .card {
+        padding: 20px 16px !important;
+      }
+      
+      .cta-section h2 {
+        font-size: 1.3rem !important;
+      }
+    }
+    
+    /* Fix for hero visual on mobile */
+    @media (max-width: 992px) {
+      .hero-visual {
+        display: none;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+      }
+      
+      .hero-ctas {
+        justify-content: center;
+      }
+      
+      .hero-content {
+        text-align: center;
+      }
+      
+      .hero-badge {
+        display: inline-flex;
+      }
+    }
+    
+    /* Ensure stats grid works on all devices */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .stat-item:nth-child(even) {
+        border-right: none;
+      }
+      
+      .stat-item:last-child,
+      .stat-item:nth-last-child(2) {
+        border-bottom: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +146,6 @@
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <!--<div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>-->
     </a>
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
@@ -54,17 +184,17 @@
   <a href="https://app.pavilonmidas.com/register" class="btn btn-primary">Get Started</a>
 </div>
 
-<!-- HERO SECTION - Cleaned up, stats removed -->
+<!-- HERO SECTION - Worldwide messaging -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="hero-badge fade-up"><i class="fas fa-globe"></i> Built for Africa's Retail Investors</div>
+        <div class="hero-badge fade-up"><i class="fas fa-globe"></i> Trusted by Investors Worldwide</div>
         <h1 class="hero-title fade-up" data-delay="100">
           Trade Smarter.<br><span>Earn Consistently.</span><br>Grow Together.
         </h1>
         <p class="hero-subtitle fade-up" data-delay="200">
-          Access high-accuracy forex signals and structured pool investment opportunities — built for everyday investors across Ghana, Nigeria and West Africa.
+          Access high-accuracy forex signals and structured pool investment opportunities — built for everyday investors globally.
         </p>
         <div class="hero-ctas fade-up" data-delay="300">
           <a href="https://app.pavilonmidas.com/register" class="btn btn-primary btn-lg"><i class="fas fa-user-plus"></i> Create Free Account</a>
@@ -108,21 +238,22 @@
   </div>
 </section>
 
-<!-- TRUST STRIP -->
+<!-- TRUST STRIP - Worldwide focus -->
 <div class="trust-strip">
   <div class="container">
     <p class="trust-text">Trusted by investors across</p>
     <div class="trust-logos">
-      <div class="trust-logo"><i class="fas fa-map-marker-alt"></i> Ghana</div>
-      <div class="trust-logo"><i class="fas fa-map-marker-alt"></i> Nigeria</div>
-      <div class="trust-logo"><i class="fas fa-globe"></i> West Africa</div>
+      <div class="trust-logo"><i class="fas fa-globe-africa"></i> Africa</div>
+      <div class="trust-logo"><i class="fas fa-globe-asia"></i> Asia</div>
+      <div class="trust-logo"><i class="fas fa-globe-americas"></i> Americas</div>
+      <div class="trust-logo"><i class="fas fa-globe-europe"></i> Europe</div>
       <div class="trust-logo"><i class="fas fa-chart-line"></i> MT4/MT5</div>
       <div class="trust-logo"><i class="fab fa-telegram"></i> Telegram</div>
     </div>
   </div>
 </div>
 
-<!-- STATS STRIP - Main stats section kept, hero stats removed -->
+<!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="container">
     <div class="stats-grid">
@@ -132,7 +263,7 @@
       </div>
       <div class="stat-item fade-up" data-delay="100">
         <div class="stat-number" data-count="15" data-suffix="%">0%</div>
-        <div class="stat-label">Max Monthly ROI</div>
+        <div class="stat-label">Target Monthly ROI</div>
       </div>
       <div class="stat-item fade-up" data-delay="200">
         <div class="stat-number" data-count="100" data-prefix="$">$0</div>
@@ -151,7 +282,7 @@
   <div class="container">
     <div class="section-header centered">
       <div class="section-label fade-up">Why Choose Us</div>
-      <h2 class="section-title fade-up" data-delay="100">Trusted by Everyday <span class="text-gold">Investors</span></h2>
+      <h2 class="section-title fade-up" data-delay="100">Trusted by <span class="text-gold">Global Investors</span></h2>
       <div class="divider centered fade-up" data-delay="150"></div>
     </div>
     <div class="grid-3">
@@ -205,12 +336,12 @@
   </div>
 </section>
 
-<!-- CTA SECTION -->
+<!-- CTA SECTION - Worldwide messaging -->
 <section class="cta-section">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-label fade-up">Get Started</div>
     <h2 class="fade-up text-white" data-delay="80">Ready to Start Your <span class="text-gold">Forex Journey?</span></h2>
-    <p class="fade-up" data-delay="160">Join hundreds of everyday investors across Ghana and Nigeria who are growing their wealth with Pavilon Midas.</p>
+    <p class="fade-up" data-delay="160">Join thousands of investors worldwide who are growing their wealth with Pavilion Midas Academy Ltd.</p>
     <div class="cta-buttons fade-up" data-delay="240">
       <a href="https://app.pavilonmidas.com/register" class="btn btn-primary btn-lg"><i class="fas fa-user-plus"></i> Create Free Account</a>
       <a href="contact.html" class="btn btn-outline btn-lg"><i class="fas fa-comments"></i> Contact Us</a>
@@ -218,7 +349,7 @@
   </div>
 </section>
 
-<!-- FOOTER - Core social platforms only -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">

@@ -2,11 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>About Us — Pavilion Midas Academy Ltd</title>
-  <meta name="description" content="Learn about Pavilion Midas Academy Ltd — Africa's trusted forex signal and pool investment company built for everyday investors in Ghana and Nigeria." />
+  <meta name="description" content="Learn about Pavilion Midas Academy Ltd — a global forex signal and pool investment company empowering everyday investors worldwide with professional trading solutions." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <style>
+    /* Mobile responsive fixes */
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      
+      .stats-grid-inline {
+        gap: 10px !important;
+      }
+      
+      .stats-grid-inline div {
+        padding: 12px !important;
+      }
+      
+      .stats-grid-inline div div:first-child {
+        font-size: 1.5rem !important;
+      }
+      
+      .problem-grid {
+        flex-direction: column;
+        gap: 16px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .page-hero h1 {
+        font-size: 1.4rem !important;
+      }
+      
+      .about-stats-card {
+        padding: 28px 20px !important;
+      }
+      
+      .stats-grid-inline {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    
+    /* Two column layout fix */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    
+    .problem-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      background: var(--off-white);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--gold);
+    }
+    
+    .stats-grid-inline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    
+    .stats-grid-inline .stat-box {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid-inline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,12 +101,11 @@
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <!--<div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>-->
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <div class="dropdown">
-        <a href="services.html">Services <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i></a>
+        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown-menu">
           <a href="signals.html"><i class="fas fa-chart-bar"></i> Forex Signals</a>
           <a href="pool-investment.html"><i class="fas fa-wallet"></i> Forex Trading Pool</a>
@@ -37,6 +123,7 @@
     <div class="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
+
 <div class="mobile-menu">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
@@ -52,9 +139,9 @@
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="container">
-    <div class="page-hero-label">About Pavilon Midas</div>
+    <div class="page-hero-label">About Pavilion Midas</div>
     <h1>Building a Smarter Path <span class="text-gold">Into Forex</span></h1>
-    <p>Designed specifically for everyday individuals — not just professional traders. We're solving Africa's retail forex problem.</p>
+    <p>Designed specifically for everyday individuals — not just professional traders. We're solving retail forex challenges globally.</p>
     <div class="breadcrumb">
       <a href="index.html">Home</a><span class="sep">›</span><span>About Us</span>
     </div>
@@ -64,21 +151,21 @@
 <!-- WHO WE ARE -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;">
+    <div class="about-grid">
       <div class="fade-up">
         <div class="section-label">Who We Are</div>
-        <h2>Africa's <span class="text-gold">Trusted Gateway</span> for Retail Forex</h2>
+        <h2>A <span class="text-gold">Global Gateway</span> for Retail Forex</h2>
         <div class="divider"></div>
         <p style="color:var(--gray-700);margin-bottom:20px;">At Pavilion Midas Academy Ltd, we are building a smarter, more accessible path into the global forex market — designed specifically for everyday individuals, not just professional traders.</p>
-        <p style="color:var(--gray-700);margin-bottom:28px;">We exist to solve two major problems in the retail forex space:</p>
+        <p style="color:var(--gray-700);margin-bottom:28px;">We exist to solve major problems in the retail forex space:</p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
-          <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--off-white);border-radius:var(--radius);border-left:3px solid var(--gold);">
+          <div class="problem-card">
             <span style="color:var(--gold);font-size:1.1rem;margin-top:2px;"><i class="fas fa-bolt"></i></span>
             <div><strong>Lack of reliable, professional market analysis</strong><br><span style="font-size:0.85rem;color:var(--gray-700);">Most retail traders trade without proper data-driven insights</span></div>
           </div>
-          <div style="display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--off-white);border-radius:var(--radius);border-left:3px solid var(--gold);">
+          <div class="problem-card">
             <span style="color:var(--gold);font-size:1.1rem;margin-top:2px;"><i class="fas fa-bolt"></i></span>
-            <div><strong>High rate of account losses among retail traders</strong><br><span style="font-size:0.85rem;color:var(--gray-700);">Over 95% of retail forex traders blow their accounts</span></div>
+            <div><strong>High rate of account losses among retail traders</strong><br><span style="font-size:0.85rem;color:var(--gray-700);">Over 90% of retail forex traders struggle with profitability</span></div>
           </div>
         </div>
         <p style="color:var(--navy);font-weight:600;font-size:1.05rem;">Our approach is simple: <span class="text-gold">Precision, Transparency, and Accessibility.</span></p>
@@ -89,20 +176,20 @@
           <img src="assets/logo.png" alt="Pavilon Midas" style="height:60px;margin:0 auto 28px;" onerror="this.style.display='none'">
           <div style="font-family:var(--font-display);font-size:1.4rem;color:var(--white);margin-bottom:8px;">Pavilion Midas Academy Ltd</div>
           <div style="color:var(--gold);font-size:0.78rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:32px;">Asset Management</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-            <div style="background:rgba(255,255,255,0.06);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,0.08);">
+          <div class="stats-grid-inline">
+            <div class="stat-box">
               <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold);">90%</div>
               <div style="font-size:0.75rem;opacity:0.55;margin-top:4px;">Win Rate</div>
             </div>
-            <div style="background:rgba(255,255,255,0.06);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,0.08);">
+            <div class="stat-box">
               <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold);">15%</div>
-              <div style="font-size:0.75rem;opacity:0.55;margin-top:4px;">Monthly ROI</div>
+              <div style="font-size:0.75rem;opacity:0.55;margin-top:4px;">Target ROI</div>
             </div>
-            <div style="background:rgba(255,255,255,0.06);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,0.08);">
+            <div class="stat-box">
               <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold);">$100</div>
               <div style="font-size:0.75rem;opacity:0.55;margin-top:4px;">Min Entry</div>
             </div>
-            <div style="background:rgba(255,255,255,0.06);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,0.08);">
+            <div class="stat-box">
               <div style="font-family:var(--font-display);font-size:2rem;color:var(--gold);">3</div>
               <div style="font-size:0.75rem;opacity:0.55;margin-top:4px;">Income Streams</div>
             </div>
@@ -120,9 +207,9 @@
       <div class="card fade-up" style="border-top:4px solid var(--gold);">
         <div style="font-size:2rem;margin-bottom:16px;"><i class="fas fa-bullseye"></i></div>
         <div class="section-label">Our Vision</div>
-        <h3>Africa's Most Trusted Forex Gateway</h3>
+        <h3>A Globally Trusted Forex Gateway</h3>
         <div class="divider"></div>
-        <p style="color:var(--gray-700);">To become Africa's most trusted gateway for retail forex participation — enabling thousands of individuals to grow wealth through structured, transparent, and professionally managed trading systems.</p>
+        <p style="color:var(--gray-700);">To become a globally trusted gateway for retail forex participation — enabling thousands of individuals worldwide to grow wealth through structured, transparent, and professionally managed trading systems.</p>
       </div>
       <div class="card fade-up" data-delay="150" style="border-top:4px solid var(--navy);">
         <div style="font-size:2rem;margin-bottom:16px;"><i class="fas fa-rocket"></i></div>
@@ -130,10 +217,10 @@
         <h3>Simplify Forex for Everyone</h3>
         <div class="divider"></div>
         <ul class="check-list">
-          <li>Simplify forex participation for beginners and non-traders</li>
-          <li>Provide consistent, structured market insights</li>
+          <li>Simplify forex participation for beginners and non-traders globally</li>
+          <li>Provide consistent, structured market insights for all investors</li>
           <li>Create accessible opportunities starting from low capital</li>
-          <li>Build a community-driven ecosystem powered by trust</li>
+          <li>Build a community-driven ecosystem powered by trust worldwide</li>
         </ul>
       </div>
     </div>
@@ -156,8 +243,8 @@
       </div>
       <div class="card card-dark fade-up" data-delay="100">
         <div class="card-icon"><i class="fas fa-globe"></i></div>
-        <h3 style="color:var(--white);">Built for Africa</h3>
-        <p>Designed specifically for Ghana and West African retail investors with low capital barriers and local understanding.</p>
+        <h3 style="color:var(--white);">Built for Global Investors</h3>
+        <p>Designed specifically for retail investors worldwide with low capital barriers and local market understanding.</p>
       </div>
       <div class="card card-dark fade-up" data-delay="200">
         <div class="card-icon"><i class="fas fa-bolt"></i></div>
@@ -186,8 +273,8 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="container" style="position:relative;z-index:1;">
-    <h2 class="fade-up text-white">Join the <span class="text-gold">Pavilon Midas</span> Community</h2>
-    <p class="fade-up" data-delay="80">Be part of Africa's growing network of smart, informed forex investors and traders.</p>
+    <h2 class="fade-up text-white">Join the <span class="text-gold">Pavilion Midas</span> Community</h2>
+    <p class="fade-up" data-delay="80">Be part of a growing global network of smart, informed forex investors and traders.</p>
     <div class="cta-buttons fade-up" data-delay="160">
       <a href="https://app.pavilonmidas.com/register" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Get Started Today</a>
       <a href="contact.html" class="btn btn-outline btn-lg"><i class="fas fa-comments"></i> Contact Us</a>
@@ -195,7 +282,7 @@
   </div>
 </section>
 
-<!-- FOOTER - Core social platforms only -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">

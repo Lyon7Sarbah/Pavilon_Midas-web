@@ -2,11 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Forex Signals — Pavilion Midas Academy Ltd</title>
   <meta name="description" content="Professional forex signals with 90% win rate. Subscribe to receive high-accuracy signals delivered via Telegram with full risk management." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <style>
+    /* Additional responsive styles for pricing cards */
+    .pricing-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    
+    .pricing-grid .plan-card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 380px;
+    }
+    
+    /* Mobile responsive improvements */
+    @media (max-width: 768px) {
+      .pricing-grid {
+        gap: 20px;
+      }
+      
+      .pricing-grid .plan-card {
+        min-width: 100%;
+        max-width: 100%;
+      }
+      
+      .plan-card .plan-price {
+        font-size: 2.5rem;
+      }
+      
+      .plan-card .plan-price sup {
+        font-size: 1.2rem;
+      }
+      
+      .plan-card .plan-price span {
+        font-size: 0.9rem;
+      }
+      
+      .plan-features li {
+        font-size: 0.85rem;
+        padding: 7px 0;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .plan-card {
+        padding: 24px 18px;
+      }
+      
+      .plan-card .plan-price {
+        font-size: 2.2rem;
+      }
+      
+      .plan-name {
+        font-size: 0.8rem;
+      }
+      
+      .plan-period {
+        font-size: 0.75rem;
+      }
+      
+      .btn-primary, .btn-outline-gold {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Problem/Solution section mobile fix */
+    @media (max-width: 992px) {
+      .problem-solution-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+    }
+    
+    /* How it works grid mobile fix */
+    @media (max-width: 768px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .grid-4 {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Benefits grid mobile fix */
+    @media (max-width: 768px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .grid-3 {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
+    /* Sample signal box mobile fix */
+    @media (max-width: 560px) {
+      .sample-signal {
+        padding: 18px !important;
+        font-size: 0.8rem !important;
+      }
+      
+      .sample-signal div {
+        font-size: 0.75rem !important;
+      }
+    }
+    
+    /* Hero section mobile fix */
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 1.8rem !important;
+      }
+      
+      .page-hero p {
+        font-size: 0.95rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .page-hero h1 {
+        font-size: 1.4rem !important;
+      }
+    }
+    
+    /* Problem cards mobile fix */
+    .problem-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: #fff5f5;
+      border-radius: var(--radius);
+      border: 1px solid rgba(231, 76, 60, 0.15);
+    }
+    
+    @media (max-width: 560px) {
+      .problem-card {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+      
+      .problem-card span {
+        font-size: 1.1rem !important;
+      }
+      
+      .problem-card strong {
+        font-size: 0.85rem;
+      }
+      
+      .problem-card span:last-child {
+        font-size: 0.75rem !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,7 +180,6 @@
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="assets/logo.png" alt="Pavilon Midas" onerror="this.style.display='none'">
-      <!--<div class="nav-logo-text">PAVILON MIDAS<span>Asset Management Ltd</span></div>-->
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -37,6 +202,7 @@
     <div class="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
+
 <div class="mobile-menu">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
@@ -64,22 +230,22 @@
 <!-- PROBLEM / SOLUTION -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    <div class="problem-solution-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
       <div class="fade-up">
         <div class="section-label">The Problem</div>
         <h2>Why Most Traders <span style="color:var(--danger);">Lose</span> Their Accounts</h2>
         <div class="divider"></div>
         <p style="color:var(--gray-700);margin-bottom:24px;">One of the biggest reasons new and experienced traders blow their accounts is simple:</p>
         <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
-          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:#fff5f5;border-radius:var(--radius);border:1px solid rgba(231,76,60,0.15);">
+          <div class="problem-card">
             <span style="font-size:1.3rem;color:#e74c3c;"><i class="fas fa-times-circle"></i></span>
             <div><strong style="color:var(--navy);">Lack of professional market analysis</strong><br><span style="font-size:0.85rem;color:var(--gray-700);">Trading without proper analysis leads to random, emotional decisions</span></div>
           </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:#fff5f5;border-radius:var(--radius);border:1px solid rgba(231,76,60,0.15);">
+          <div class="problem-card">
             <span style="font-size:1.3rem;color:#e74c3c;"><i class="fas fa-times-circle"></i></span>
             <div><strong style="color:var(--navy);">Emotional trading decisions</strong><br><span style="font-size:0.85rem;color:var(--gray-700);">Fear and greed drive most retail traders into losses</span></div>
           </div>
-          <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:#fff5f5;border-radius:var(--radius);border:1px solid rgba(231,76,60,0.15);">
+          <div class="problem-card">
             <span style="font-size:1.3rem;color:#e74c3c;"><i class="fas fa-times-circle"></i></span>
             <div><strong style="color:var(--navy);">Poor risk management</strong><br><span style="font-size:0.85rem;color:var(--gray-700);">Without SL/TP strategies, one bad trade can wipe an account</span></div>
           </div>
@@ -140,7 +306,7 @@
     <!-- SAMPLE SIGNAL -->
     <div class="fade-up" style="max-width:520px;margin:50px auto 0;">
       <div style="text-align:center;margin-bottom:20px;"><span class="section-label">Sample Signal Format</span></div>
-      <div style="background:var(--navy);border-radius:var(--radius-xl);padding:28px;color:var(--white);font-family:'Courier New',monospace;font-size:0.9rem;line-height:1.9;border:1px solid rgba(232,122,32,0.25);">
+      <div class="sample-signal" style="background:var(--navy);border-radius:var(--radius-xl);padding:28px;color:var(--white);font-family:'Courier New',monospace;font-size:0.9rem;line-height:1.9;border:1px solid rgba(232,122,32,0.25);">
         <div style="color:var(--gold);font-size:1rem;font-weight:700;margin-bottom:14px;font-family:var(--font-display);letter-spacing:1px;"><i class="fas fa-chart-bar"></i> PAVILON MIDAS SIGNAL</div>
         <div>Pair: <span style="color:var(--gold);">EUR/USD</span></div>
         <div>Direction: <span style="color:#2ecc71;"><i class="fas fa-chart-line"></i> BUY</span></div>
@@ -163,39 +329,23 @@
       <div class="divider centered"></div>
       <p class="section-desc fade-up" data-delay="160">All plans include access to our premium Telegram signal channel. Cancel anytime.</p>
     </div>
-    <div class="grid-3 fade-up" data-delay="200">
-      <!-- BASIC -->
-      <div class="plan-card">
-        <div class="plan-name">Signal Basic</div>
-        <div class="plan-price"><sup>$</sup>29<span>/mo</span></div>
-        <div class="plan-period">Billed monthly · Save with quarterly</div>
-        <ul class="plan-features">
-          <li>Telegram Signal Channel Access</li>
-          <li>3–5 Signals per week</li>
-          <li>Entry, SL & TP included</li>
-          <li>Market Analysis (Basic)</li>
-          <li>Email Support</li>
-        </ul>
-        <a href="https://app.pavilonmidas.com/register" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Get Basic Plan</a>
-      </div>
-      <!-- PREMIUM -->
+    <div class="pricing-grid fade-up" data-delay="200">
+      <!-- PREMIUM - $49 (Centered) -->
       <div class="plan-card featured">
         <div class="plan-badge">Most Popular</div>
         <div class="plan-name">Signal Premium</div>
-        <div class="plan-price"><sup>$</sup>59<span>/mo</span></div>
-        <div class="plan-period">Billed monthly · Best value quarterly</div>
+        <div class="plan-price"><sup>$</sup>49<span>/mo</span></div>
+        <div class="plan-period">Billed monthly · Save with quarterly</div>
         <ul class="plan-features">
           <li>Telegram Signal Channel Access</li>
           <li>5–10 Signals per week</li>
           <li>Entry, SL & TP included</li>
           <li>Full Market Analysis</li>
-          <li>Trade Journal Access</li>
           <li>Priority Telegram Support</li>
-          <li>Monthly Performance Reports</li>
         </ul>
         <a href="https://app.pavilonmidas.com/register" class="btn btn-primary" style="width:100%;justify-content:center;">Get Premium Plan</a>
       </div>
-      <!-- PRO -->
+      <!-- PRO - $99 -->
       <div class="plan-card">
         <div class="plan-name">Signal Pro</div>
         <div class="plan-price"><sup>$</sup>99<span>/mo</span></div>
@@ -204,10 +354,8 @@
           <li>Everything in Premium</li>
           <li>10+ Signals per week</li>
           <li>VIP Telegram Channel</li>
-          <li>1-on-1 Trading Guidance</li>
           <li>Early Signal Alerts</li>
           <li>Direct Analyst Access</li>
-          <li>Quarterly Strategy Reports</li>
         </ul>
         <a href="https://app.pavilonmidas.com/register" class="btn btn-outline-gold" style="width:100%;justify-content:center;">Get Pro Plan</a>
       </div>
@@ -249,7 +397,7 @@
   </div>
 </section>
 
-<!-- FOOTER - Core social platforms only -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">

@@ -650,11 +650,11 @@ i, .fas, .fab { display: inline-block; }
   padding: 50px 0;
   text-align: center;
 }
-.trust-text { color: var(--gray-500); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+.trust-text { color: var(--gray-700); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
 .trust-logos { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
 .trust-logo {
   font-family: var(--font-display);
-  color: var(--gray-300);
+  color: var(--gray-500);
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 1px;
